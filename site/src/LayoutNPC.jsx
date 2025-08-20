@@ -1,11 +1,9 @@
-function FichaNPC({ nome, atributos, pericias }) {
-  return (
-    <>
-      <p>{nome}</p>
-      <p>{atributos}</p>
-      <p>{pericias}</p>
-    </>
-  );
+export default function FichaNPC({ info, atributos, pericias }) {
+    return (
+        <>
+            <p>Nome: {info.nome}</p>
+            <p>Aparencia: {atributos.aparencia}</p>
+            <p>Destreza: {pericias.destreza}</p>
+        </>
+    )
 }
-
-export default FichaNPC;
