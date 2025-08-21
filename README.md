@@ -1,4 +1,4 @@
-﻿Automatic Character Creator (ACC)
+# ﻿Automatic Character Creator (ACC)
 
 # Repositório para criar personagens de RPG
 O sistema utilizado é um próprio; baseado em D20. 
@@ -15,6 +15,7 @@ Está sendo utilizado o React com base do site.
 Pequeno projeto com React que pega alguns inputs, processa os dados e mostra na tela o layout da ficha do personagem. 
 
 ### Como usar
-Para rodar, clone e abra o repositório, acesse a pasta site (`cd site`), instale as dependências (`npm install`) e depois dê inicio nele com `npm start`. 
+Para rodar, clone e abra o repositório, acesse a pasta site (`cd site`), instale as dependências (`npm install`) e depois dê inicio nele com `npm run dev`. 
 
-Ainda em desenvolvimento.
+*Ainda em desenvolvimento.*
+
