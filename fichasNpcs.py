@@ -185,7 +185,7 @@ Correr: {arredondaMenorInt((destreza + vigor) / 2)}
 Escalar{pen("escalar")}: {arredondaMenorInt((destreza + forca) / 2 - tamanho)}
 Esquivar: {arredondaMenorInt((destreza + percepcao) / 2)}
 Furtividade: {arredondaMenorInt((destreza + intelecto) / 2)}
-Reflexos: {arredondaMenorInt((destreza + intelecto + percepcao) // 3 + sabedoria)}
+Reflexos: {arredondaMenorInt((destreza + intelecto + percepcao) / 3 + sabedoria)}
 
 Força
 Agarrar: {arredondaMenorInt((forca + vigor + destreza) / 3)}
