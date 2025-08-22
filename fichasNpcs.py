@@ -226,7 +226,7 @@ Mentir: {arredondaMenorInt((psicologia + labia) / 3 + sabedoria + aparencia)}
 Persuadir: {arredondaMenorInt((psicologia + labia) / 2 + aparencia)}
 
 Técnica
-Busca{pen("busca")}: {arredondaMenorInt((2 * tecnica + intelecto) / 3)}
+Buscar{pen("busca")}: {arredondaMenorInt((2 * tecnica + intelecto) / 3)}
 Hacker{pen("hacker")}: {arredondaMenorInt((4 * tecnica + intelecto + destreza) / 8 + sabedoria/2)}
 Montar{pen("montar")}: {arredondaMenorInt((3 * tecnica + precisao) / 4 + sabedoria)}
 '''
