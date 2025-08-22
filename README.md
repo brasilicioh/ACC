@@ -16,6 +16,6 @@ Pequeno projeto com React que pega alguns inputs, processa os dados e mostra na 
 
 ### Como usar
 Para rodar, clone e abra o repositório, acesse a pasta site (`cd site`), instale as dependências (`npm install`) e depois dê inicio nele com `npm run dev`. 
+Para acessar o site, utilize o site `https://brasilicioh.github.io/ACC/`. Para conseguir editá-lo após editar os arquivos; com o fork desse repositório, use os comandos `npm run build` e `npm run deploy`; mas antes disso, instale as dependências: `npm install gh-pages --save-dev`. 
 
 *Ainda em desenvolvimento.*
-
