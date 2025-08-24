@@ -1,5 +1,6 @@
 import { useState } from 'react'
-import FichaNPC from './LayoutFicha'
+import Ficha from './LayoutFicha'
+import { BasicInformation, OtherInformation, Habilidade, Classe, Atributos, Pericias } from './Entradas.jsx'
 
 function CriarCharacter({ tipo }) {
     const [info, setInfo] = useState({nome: "", idade: "", nascimento: "", historia: ""})
@@ -21,7 +22,7 @@ function CriarCharacter({ tipo }) {
             return
         }
         if (tipo === "player" && (!info.nascimento || !info.historia)) {
-            alert("Preencha todas informações pessoais 1!")
+            alert("Preencha todas informações pessoais!")
             return
         }
         // if (!habilidades) {
@@ -47,142 +48,32 @@ function CriarCharacter({ tipo }) {
         const numeroAleatorio = (Math.floor(Math.random() * 4) + 1) + (Math.floor(Math.random() * 4) + 1) + (Math.floor(Math.random() * 4) + 1) + 2
         setPericias(prev => ({ ...prev, sorte: numeroAleatorio}))
     }
-
-    function BasicInformation() {
-        return (
-            <div id="infoPessoal">
-                <h4>Informações</h4>
-                <label>Nome: <input name='nome' value={info.nome} onChange={e => settarValores(e, setInfo)} type='text' /></label><br />
-                <label>Idade: <input name='idade' value={info.idade} onChange={e => settarValores(e, setInfo)} type='number' /></label><br />
-            </div>
-        )
-    }
-
-    function OtherInformation() {
-        return (
-            <div id="infoPessoal">
-                <label>Data de Nascimento: <input name='nascimento' value={info.nascimento} onChange={e => settarValores(e, setInfo)} type='date' /></label><br />
-                <label>História: <input name='historia' value={info.historia} onChange={e => settarValores(e, setInfo)} type='textarea' /></label><br />
-            </div>
-        )
-    }
-
-    function Habilidade() {
-        return (
-            <div id='habilidade'>
-                <h4>Habilidade</h4>
-                <p>tem que fazer</p>
-            </div>
-        )
-    }
-
-    function Classe() {
-        return (
-            <div id='classe'>
-                <h4>Classe</h4>
-                <p>tem que fazer</p>
-                <h4>Especialidade</h4>
-                <p>tem que fazer</p>
-            </div>
-        )
-    }
-
-    function Atributos() {
-        return (
-            <div id='atributos'>
-                <h4>Atributos</h4>
-                <label>Aparência: <input name='aparencia' value={atributos.aparencia} onChange={e => settarValores(e, setAtributos)} type='number' />
-                <input name='aparencia' value={buffs.aparencia} onChange={e => settarValores(e, setBuffs)} type='number' /></label><br /> 
-                <label>Sabedoria: <input name='sabedoria' value={atributos.sabedoria} onChange={e => settarValores(e, setAtributos)} type='number' />
-                <input name='sabedoria' value={buffs.sabedoria} onChange={e => settarValores(e, setBuffs)} type='number' /></label><br /> 
-                <label>Tamanho: <input name='tamanho' value={atributos.tamanho} onChange={e => settarValores(e, setAtributos)} type='number' />
-                <input name='tamanho' value={buffs.tamanho} onChange={e => settarValores(e, setBuffs)} type='number' /></label><br /> 
-                {atributos.tamanho && <span>{`1d${4+2*(Number(atributos.tamanho)+Number(buffs.tamanho))}`}</span>}<br />
-            </div>
-        )
-    }
-
-    function Pericias() {
-        return (
-            <div id='periciais'>
-                <h4>Perícias</h4>
-                <label>Destreza: <input name='destreza' value={pericias.destreza} onChange={e => settarValores(e, setPericias)} type='number' />
-                <input name='destreza' value={buffs.destreza} onChange={e => settarValores(e, setBuffs)} type='number' /></label><br /> 
-                <label>Força: <input name='forca' value={pericias.forca} onChange={e => settarValores(e, setPericias)} type='number' />
-                <input name='forca' value={buffs.forca} onChange={e => settarValores(e, setBuffs)} type='number' /></label><br /> 
-                <label>Intelecto: <input name='intelecto' value={pericias.intelecto} onChange={e => settarValores(e, setPericias)} type='number' />
-                <input name='intelecto' value={buffs.intelecto} onChange={e => settarValores(e, setBuffs)} type='number' /></label><br /> 
-                <label>Lábia: <input name='labia' value={pericias.labia} onChange={e => settarValores(e, setPericias)} type='number' />
-                <input name='labia' value={buffs.labia} onChange={e => settarValores(e, setBuffs)} type='number' /></label><br /> 
-                <label>Percepção: <input name='percepcao' value={pericias.percepcao} onChange={e => settarValores(e, setPericias)} type='number' />
-                <input name='percepcao' value={buffs.percepcao} onChange={e => settarValores(e, setBuffs)} type='number' /></label><br /> 
-                <label>Poder: <input name='poder' value={pericias.poder} onChange={e => settarValores(e, setPericias)} type='number' />
-                <input name='poder' value={buffs.poder} onChange={e => settarValores(e, setBuffs)} type='number' /></label><br /> 
-                <label>Precisão: <input name='precisao' value={pericias.precisao} onChange={e => settarValores(e, setPericias)} type='number' />
-                <input name='precisao' value={buffs.precisao} onChange={e => settarValores(e, setBuffs)} type='number' /></label><br /> 
-                <label>Psicologia: <input name='psicologia' value={pericias.psicologia} onChange={e => settarValores(e, setPericias)} type='number' />
-                <input name='psicologia' value={buffs.psicologia} onChange={e => settarValores(e, setBuffs)} type='number' /></label><br /> 
-                <label>Técnica: <input name='tecnica' value={pericias.tecnica} onChange={e => settarValores(e, setPericias)} type='number' />
-                <input name='tecnica' value={buffs.tecnica} onChange={e => settarValores(e, setBuffs)} type='number' /></label><br /> 
-                <label>Vigor: <input name='vigor' value={pericias.vigor} onChange={e => settarValores(e, setPericias)} type='number' />
-                <input name='vigor' value={buffs.vigor} onChange={e => settarValores(e, setBuffs)} type='number' /></label><br /> 
-                <label>Sorte: <span>{pericias.sorte !== "" ? pericias.sorte : ""} </span><button id='btnSorte' onClick={definirSorte}>3d4+2</button>
-                <input name='sorte' value={buffs.sorte} onChange={e => settarValores(e, setBuffs)} type='number' /></label><br /> 
-            </div>
-        )
-    }
     
-    if (tipo === "npc") {
-        return (
-            <>
-                {!concluido ? (
-                    <>
-                        <h1>Faça o NPC</h1>
-                        <BasicInformation />
-                        <hr />
-                        <Habilidade />
-                        <hr />
-                        <Atributos />
-                        <hr />
-                        <Pericias />
-                        <br /><br />
-                        <button onClick={() => handleConcluir("npc")}>Concluir</button>
-                    </>
-                ) : (
-                    <>
-                        <h1>Layout da ficha do NPC</h1>
-                        <Ficha info={info} atributos={atributos} pericias={pericias} buffs={buffs} />
-                    </>
-                )}
-            </>
-        )
-    } else {
-        return (
-            <>
-                {!concluido ? (
-                    <>
-                        <h1>Faça o Personagem</h1>
-                        <BasicInformation />
-                        <OtherInformation />
-                        <hr />
-                        <Habilidade />
-                        <Classe />
-                        <hr />
-                        <Atributos />
-                        <hr />
-                        <Pericias />
-                        <br /><br />
-                        <button onClick={() => handleConcluir("player")}>Concluir</button>
-                    </>
-                ) : (
-                    <>
-                        <h1>Layout da ficha do Personagem</h1>
-                        <Ficha info={info} atributos={atributos} pericias={pericias} buffs={buffs} />
-                    </>
-                )}
-            </>
-        )
-    }
+    return (
+        <>
+            {!concluido ? (
+                <>
+                    <h1>Faça o NPC</h1>
+                    <BasicInformation info={info} setInfo={setInfo} settarValores={settarValores} />
+                    {tipo === "player" ? <OtherInformation info={info} setInfo={setInfo} settarValores={settarValores} /> : null}
+                    <hr />
+                    <Habilidade />
+                    {tipo === "player" ? <Classe /> : null}
+                    <hr />
+                    <Atributos atributos={atributos} setAtributos={setAtributos} buffs={buffs} setBuffs={setBuffs} settarValores={settarValores} />
+                    <hr />
+                    <Pericias pericias={pericias} setPericias={setPericias} buffs={buffs} setBuffs={setBuffs} settarValores={settarValores} definirSorte={definirSorte} />
+                    <br /><br />
+                    <button onClick={() => handleConcluir("npc")}>Concluir</button>
+                </>
+            ) : (
+                <>
+                    <h1>Layout da ficha do NPC</h1>
+                    <Ficha info={info} atributos={atributos} pericias={pericias} buffs={buffs} tipo={tipo} />
+                </>
+            )}
+        </>
+    )
 }
 
 function MainChoice({ onEscolher }) {
@@ -191,6 +82,7 @@ function MainChoice({ onEscolher }) {
             <h1>Escolha a sua opção</h1>
             <button onClick={() => onEscolher('npc')}>Criar NPC</button>
             <button onClick={() => onEscolher('player')}>Criar Jogador</button>
+            <a href="https://brasilicioh.github.io/simuladorDados"><button>Simulador Dados</button></a>
         </>
     )
 }

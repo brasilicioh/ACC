@@ -1,6 +1,26 @@
 import { useState } from "react"
 
-export default function Ficha({ info, atributos, pericias, buffs }) {
+function AcaoPenalidade({ label, valor }) {
+    const [penalidade, setPenalidade] = useState(true)
+    
+    return (
+        <p><span onClick={() => setPenalidade(e => !e)} style={{ cursor: "pointer" }}>{label}{penalidade ? "°" : ""}</span>: {valor} <Vantagem /></p>
+    )
+}
+
+function Vantagem() {
+    const [vant, setVant] = useState(0)
+    
+    return (
+        <>
+            {vant === 0 ? "(0)" : vant > 0 ? `(${vant} vantagem)` : `(${vant*-1} desvantagem)`} 
+            <span onClick={() => setVant(v => v + 1)} style={{ cursor: "pointer" }}>  +  </span>
+            <span onClick={() => setVant(v => v - 1)} style={{ cursor: "pointer" }}>-</span>
+        </>
+    )
+}
+
+export default function Ficha({ info, atributos, pericias, buffs, tipo }) {
     let somaPericias = 0
     let somaBuffs = 0
     for (const chave in pericias) {
@@ -23,28 +43,14 @@ export default function Ficha({ info, atributos, pericias, buffs }) {
     const vigor = pericias.vigor + buffs.vigor
     const sorte = pericias.sorte + buffs.sorte
 
-    function AcaoPenalidade({ label, valor }) {
-        const [penalidade, setPenalidade] = useState(true)
-        return (
-            <p><span onClick={() => setPenalidade(e => !e)} style={{ cursor: "pointer" }}>{label}{penalidade ? "°" : ""}</span>: {valor} <Vantagem /></p>
-        )
-    }
-
-    function Vantagem() {
-    const [vant, setVant] = useState(0)
-    return (
-        <>
-            {vant === 0 ? "(0)" : vant > 0 ? `(${vant} vantagem)` : `(${vant*-1} desvantagem)`} 
-            <span onClick={() => setVant(v => v + 1)} style={{ cursor: "pointer" }}>  +  </span>
-            <span onClick={() => setVant(v => v - 1)} style={{ cursor: "pointer" }}>-</span>
-        </>
-    )
-}
-
     return (
         <>
             <p>Nome: {info.nome}</p>
             <p>Idade: {info.idade}</p>
+            {tipo === "player" ? <>
+                <p>Nascimento: {info.nascimento}</p>
+                <p>História: {info.historia}</p>
+            </> : null}
             <br />
             <p>ATRIBUTOS</p>
             <p>Aparência: {atributos.aparencia}{buffs.aparencia != 0 ? "+" + buffs.aparencia : ""}</p>
@@ -53,6 +59,10 @@ export default function Ficha({ info, atributos, pericias, buffs }) {
             <br />
             <p>Habilidade:</p>
             <p>tem que fazer</p>
+            {tipo === "player" ? <>
+                <p>Classe: tem que fazer</p>
+                <p>Especialidade: tem que fazer</p>
+            </> : null}
             <br />
             <p>Vida: {Math.floor((vigor + tamanho + 20) * 1.5)}/{Math.floor((vigor + tamanho + 20) * 1.5)}</p>
             <p>Saúde Mental: {Math.floor((poder + sabedoria) * 2 + (psicologia / 3) + 15)}/{Math.floor((poder + sabedoria) * 2 + (psicologia / 3) + 15)}</p>
