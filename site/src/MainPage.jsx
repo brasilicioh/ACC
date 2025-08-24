@@ -1,8 +1,8 @@
 import { useState } from 'react'
 import Ficha from './LayoutFicha'
-import { BasicInformation, OtherInformation, Habilidade, Classe, Atributos, Pericias } from './Entradas.jsx'
+import { BasicInformation, Habilidade, Classe, Atributos, Pericias } from './Entradas.jsx'
 
-function CriarCharacter({ tipo }) {
+function CriarCharacter() {
     const [info, setInfo] = useState({nome: "", idade: "", nascimento: "", historia: ""})
     // const [habilidades, setHabilidade] = useState([])
     // const [classes, setClasses] = useState({classe: [], especialidade: []})
@@ -16,12 +16,8 @@ function CriarCharacter({ tipo }) {
         setter(prev => ({ ...prev, [name]: value === "" ? "" : type === "number" ? Number(value) : value }))
     }
 
-    const handleConcluir = (tipo) => {
+    const handleConcluir = () => {
         if (!info.nome || !info.idade) {
-            alert("Preencha todas informações pessoais!")
-            return
-        }
-        if (tipo === "player" && (!info.nascimento || !info.historia)) {
             alert("Preencha todas informações pessoais!")
             return
         }
@@ -29,7 +25,7 @@ function CriarCharacter({ tipo }) {
         //     alert("Preencha a habilidade!")
         //     return
         // }
-        // if (tipo === "player" && (!classes.classe || classes.especialidade)) {
+        // if (!classes.classe || !classes.especialidade) {
         //     alert("Preencha toda a classe do personagem!")
         //     return
         // }
@@ -38,7 +34,7 @@ function CriarCharacter({ tipo }) {
             return
         }
         if (!pericias.destreza || !pericias.forca || !pericias.intelecto || !pericias.labia || !pericias.percepcao || !pericias.poder || !pericias.precisao || !pericias.psicologia || !pericias.tecnica || !pericias.vigor || !pericias.sorte) {
-            alert("Preencha todas as pericias")
+            alert("Preencha todas as perícias!")
             return
         }
         setConcluido(true);
@@ -55,10 +51,9 @@ function CriarCharacter({ tipo }) {
                 <>
                     <h1>Faça o NPC</h1>
                     <BasicInformation info={info} setInfo={setInfo} settarValores={settarValores} />
-                    {tipo === "player" ? <OtherInformation info={info} setInfo={setInfo} settarValores={settarValores} /> : null}
                     <hr />
                     <Habilidade />
-                    {tipo === "player" ? <Classe /> : null}
+                    <Classe />
                     <hr />
                     <Atributos atributos={atributos} setAtributos={setAtributos} buffs={buffs} setBuffs={setBuffs} settarValores={settarValores} />
                     <hr />
@@ -69,7 +64,7 @@ function CriarCharacter({ tipo }) {
             ) : (
                 <>
                     <h1>Layout da ficha do NPC</h1>
-                    <Ficha info={info} atributos={atributos} pericias={pericias} buffs={buffs} tipo={tipo} />
+                    <Ficha info={info} atributos={atributos} pericias={pericias} buffs={buffs} />
                 </>
             )}
         </>
@@ -80,8 +75,7 @@ function MainChoice({ onEscolher }) {
     return (
         <>
             <h1>Escolha a sua opção</h1>
-            <button onClick={() => onEscolher('npc')}>Criar NPC</button>
-            <button onClick={() => onEscolher('player')}>Criar Jogador</button>
+            <button onClick={() => onEscolher('character')}>Criar Personagem</button>
             <a href="https://brasilicioh.github.io/simuladorDados"><button>Simulador Dados</button></a>
         </>
     )
@@ -93,8 +87,7 @@ export default function App() {
     return (
         <>
             {tela === 'menu' && <MainChoice onEscolher={setTela} />}
-            {tela === 'npc' && <CriarCharacter tipo="npc" />}
-            {tela === 'player' && <CriarCharacter tipo="player" />}
+            {tela === 'character' && <CriarCharacter />}
         </>
     )
 }

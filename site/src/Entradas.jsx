@@ -4,13 +4,6 @@ export function BasicInformation({ info, setInfo, settarValores }) {
             <h4>Informações</h4>
             <label>Nome: <input name='nome' value={info.nome} onChange={e => settarValores(e, setInfo)} type='text' /></label><br />
             <label>Idade: <input name='idade' value={info.idade} onChange={e => settarValores(e, setInfo)} type='number' /></label><br />
-        </div>
-    )
-}
-
-export function OtherInformation({ info, setInfo, settarValores }) {
-    return (
-        <div id="infoPessoal">
             <label>Data de Nascimento: <input name='nascimento' value={info.nascimento} onChange={e => settarValores(e, setInfo)} type='date' /></label><br />
             <label>História: <input name='historia' value={info.historia} onChange={e => settarValores(e, setInfo)} type='textarea' /></label><br />
         </div>
