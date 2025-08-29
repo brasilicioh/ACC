@@ -1,3 +1,7 @@
+import "./Style.css"
+import MostrarHabilidade from "./Habilidades"
+import { useState } from "react"
+
 export function BasicInformation({ info, setInfo, settarValores }) {
     return (
         <div id="infoPessoal">
@@ -11,10 +15,19 @@ export function BasicInformation({ info, setInfo, settarValores }) {
 }
 
 export function Habilidade() {
+    const [showHabilidade, setShowHabilidade] = useState(false);
+
     return (
         <div id='habilidade'>
-            <h4>Habilidade</h4>
-            <p>tem que fazer</p>
+            <button onClick={() => setShowHabilidade(true)}>Escolher Habilidades</button>
+            {showHabilidade && (
+                <div id="popUp" class="popUp">
+                    <div class="container">
+                        <span onClick={() => setShowHabilidade(false)} class="close">&times;</span>
+                        <MostrarHabilidade />
+                    </div>
+                </div>
+            )}
         </div>
     )
 }
