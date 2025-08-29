@@ -59,7 +59,7 @@ function CriarCharacter() {
                     <hr />
                     <Pericias pericias={pericias} setPericias={setPericias} buffs={buffs} setBuffs={setBuffs} settarValores={settarValores} definirSorte={definirSorte} />
                     <br /><br />
-                    <button onClick={() => handleConcluir("npc")}>Concluir</button>
+                    <button onClick={() => handleConcluir()}>Concluir</button>
                 </>
             ) : (
                 <>
