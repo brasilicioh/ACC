@@ -4,7 +4,7 @@ import { BasicInformation, Habilidade, Classe, Atributos, Pericias } from './Ent
 
 function CriarCharacter() {
     const [info, setInfo] = useState({nome: "", idade: "", nascimento: "", historia: ""})
-    // const [habilidades, setHabilidade] = useState([])
+    const [habilidades, setHabilidade] = useState([])
     // const [classes, setClasses] = useState({classe: [], especialidade: []})
     const [atributos, setAtributos] = useState({aparencia: "", sabedoria: "", tamanho: ""})
     const [pericias, setPericias] = useState({destreza: "", forca: "", intelecto: "", labia: "", percepcao: "", poder: "", precisao: "", psicologia: "", tecnica: "", vigor: "", sorte: ""})
@@ -52,7 +52,7 @@ function CriarCharacter() {
                     <h1>Faça o NPC</h1>
                     <BasicInformation info={info} setInfo={setInfo} settarValores={settarValores} />
                     <hr />
-                    <Habilidade />
+                    <Habilidade habilidades={habilidades} setHabilidade={setHabilidade} />
                     <Classe />
                     <hr />
                     <Atributos atributos={atributos} setAtributos={setAtributos} buffs={buffs} setBuffs={setBuffs} settarValores={settarValores} />

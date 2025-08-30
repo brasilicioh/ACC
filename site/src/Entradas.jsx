@@ -1,6 +1,6 @@
 import "./Style.css"
 import MostrarHabilidade from "./Habilidades"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
 export function BasicInformation({ info, setInfo, settarValores }) {
     return (
@@ -14,17 +14,21 @@ export function BasicInformation({ info, setInfo, settarValores }) {
     )
 }
 
-export function Habilidade() {
+export function Habilidade({ habilidades, setHabilidade }) {
     const [showHabilidade, setShowHabilidade] = useState(false);
+
+    useEffect(() => {
+        document.body.style.overflow = showHabilidade ? "hidden" : "auto"
+    }, [showHabilidade])
 
     return (
         <div id='habilidade'>
             <button onClick={() => setShowHabilidade(true)}>Escolher Habilidades</button>
             {showHabilidade && (
-                <div id="popUp" class="popUp">
-                    <div class="container">
-                        <span onClick={() => setShowHabilidade(false)} class="close">&times;</span>
-                        <MostrarHabilidade />
+                <div id="popUp" className={"popUp"}>
+                    <div className={"container"}>
+                        <span onClick={() => setShowHabilidade(false)} className={"close"}>&times;</span>
+                        <MostrarHabilidade habilidades={habilidades} setHabilidade={setHabilidade} />
                     </div>
                 </div>
             )}

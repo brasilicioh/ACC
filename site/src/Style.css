@@ -27,6 +27,16 @@
             padding: 32px 24px;
             position: relative;
 
+            .addHabilidade {
+                cursor: pointer;
+                font-size: 40px;
+                color: rgb(32, 192, 32);
+            }
+            .addHabilidade:hover {
+                color:rgb(23, 109, 23);
+                font-weight: bold;
+            }
+
             .close {
                 cursor: pointer;
                 font-size: 40px;
@@ -35,6 +45,9 @@
                 position: absolute;
                 top: 16px;
                 right: 24px;
+            }
+            .close:hover {
+                color: darkred;
             }
         }
     }
