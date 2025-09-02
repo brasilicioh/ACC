@@ -1,8 +1,18 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+    margin: 1%;
     font-family: Arial, Helvetica, sans-serif;
+}
+
+.firtsButton {
+    margin-top: 2%;
+    width: 40%;
+    height: auto;
+    background-color: rgb(0, 190, 190);
+    border: none;
+
+    &:hover {
+        background-color: rgb(0, 120, 140);
+    }
 }
 
 #habilidade {

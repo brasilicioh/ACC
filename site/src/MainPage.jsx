@@ -74,9 +74,15 @@ function CriarCharacter() {
 function MainChoice({ onEscolher }) {
     return (
         <>
-            <h1>Escolha a sua opção</h1>
-            <button onClick={() => onEscolher('character')}>Criar Personagem</button>
-            <a href="https://brasilicioh.github.io/simuladorDados"><button>Simulador Dados</button></a>
+            <div className="container">
+                <h1 className="text-center">Escolha a sua opção</h1>
+                <div className="row justify-content-center">
+                    <button type="button" className="btn btn-info btn-lg btn-block firtsButton" onClick={() => onEscolher('character')}>Criar Personagem</button>
+                </div>
+                <div className="row justify-content-center">
+                    <a className="btn btn-info btn-lg btn-block firtsButton" href="https://brasilicioh.github.io/simuladorDados/" role="button">Simulador Dados</a>
+                </div>
+            </div>
         </>
     )
 }
