@@ -1,4 +1,4 @@
-import { itens } from "./habilidades.json";
+import itens from "./habilidades.json";
 import { useState } from "react";
 
 function addHabilidade(habilidade, habilidades, setHabilidade, setMensagem) {

@@ -1,7 +1,7 @@
 import "./Style.css";
 import { MostrarHabilidade } from "./Habilidades";
 import { useEffect, useState } from "react";
-import { itens } from "./habilidades.json";
+import itens from "./habilidades.json";
 
 export function BasicInformation({ info, setInfo, settarValores }) {
     return (
