@@ -1,16 +1,16 @@
-import { useState } from "react"
-import itens from "./habilidades.json";
+import { useState } from "react";
+import { ExibirHabilidade } from "./Habilidades.jsx";
 
 function AcaoPenalidade({ label, valor }) {
-    const [penalidade, setPenalidade] = useState(true)
+    const [penalidade, setPenalidade] = useState(true);
     
     return (
         <p><span onClick={() => setPenalidade(e => !e)} style={{ cursor: "pointer" }}>{label}{penalidade ? "°" : ""}</span>: {valor} <Vantagem /></p>
-    )
+    );
 }
 
 function Vantagem() {
-    const [vant, setVant] = useState(0)
+    const [vant, setVant] = useState(0);
     
     return (
         <>
@@ -18,41 +18,31 @@ function Vantagem() {
             <span onClick={() => setVant(prev => prev + 1)} style={{ cursor: "pointer" }}>  +  </span>
             <span onClick={() => setVant(prev => prev - 1)} style={{ cursor: "pointer" }}  >-  </span>
         </>
-    )
-}
-
-function ExibirHabilidade({ habilidades }) {
-    return (
-        <>
-            {habilidades.map((key) => (
-                <p>{key}: {itens[key]}</p>
-            ))}
-        </>
     );
 }
 
 export default function Ficha({ info, habilidades, atributos, pericias, buffs }) {
-    let somaPericias = 0
-    let somaBuffs = 0
+    let somaPericias = 0;
+    let somaBuffs = 0;
     for (const chave in pericias) {
-        somaPericias += pericias[chave]
-        somaBuffs += buffs[chave] || 0
+        somaPericias += pericias[chave];
+        somaBuffs += buffs[chave] || 0;
     }
 
-    const aparencia = atributos.aparencia + buffs.aparencia
-    const sabedoria = atributos.sabedoria + buffs.sabedoria
-    const tamanho = atributos.tamanho + buffs.tamanho
-    const destreza = pericias.destreza + buffs.destreza
-    const forca = pericias.forca + buffs.forca
-    const intelecto = pericias.intelecto + buffs.intelecto
-    const labia = pericias.labia + buffs.labia
-    const percepcao = pericias.percepcao + buffs.percepcao
-    const poder = pericias.poder + buffs.poder
-    const precisao = pericias.precisao + buffs.precisao
-    const psicologia = pericias.psicologia + buffs.psicologia
-    const tecnica = pericias.tecnica + buffs.tecnica
-    const vigor = pericias.vigor + buffs.vigor
-    const sorte = pericias.sorte + buffs.sorte
+    const aparencia = atributos.aparencia + buffs.aparencia;
+    const sabedoria = atributos.sabedoria + buffs.sabedoria;
+    const tamanho = atributos.tamanho + buffs.tamanho;
+    const destreza = pericias.destreza + buffs.destreza;
+    const forca = pericias.forca + buffs.forca;
+    const intelecto = pericias.intelecto + buffs.intelecto;
+    const labia = pericias.labia + buffs.labia;
+    const percepcao = pericias.percepcao + buffs.percepcao;
+    const poder = pericias.poder + buffs.poder;
+    const precisao = pericias.precisao + buffs.precisao;
+    const psicologia = pericias.psicologia + buffs.psicologia;
+    const tecnica = pericias.tecnica + buffs.tecnica;
+    const vigor = pericias.vigor + buffs.vigor;
+    const sorte = pericias.sorte + buffs.sorte;
 
     return (
         <>
@@ -149,5 +139,5 @@ export default function Ficha({ info, habilidades, atributos, pericias, buffs })
             <AcaoPenalidade label={"Hacker"} valor={Math.floor((4 * tecnica + intelecto + destreza) / 8 + sabedoria/2)} />
             <AcaoPenalidade label={"Montar"} valor={Math.floor((3 * tecnica + precisao) / 4 + sabedoria)} />
         </>
-    )
+    );
 }

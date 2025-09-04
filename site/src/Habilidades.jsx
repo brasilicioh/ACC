@@ -1,4 +1,4 @@
-import itens from "./habilidades.json"
+import { itens } from "./habilidades.json";
 import { useState } from "react";
 
 function addHabilidade(habilidade, habilidades, setHabilidade, setMensagem) {
@@ -11,8 +11,8 @@ function addHabilidade(habilidade, habilidades, setHabilidade, setMensagem) {
     }
 }
 
-export default function MostrarHabilidade({ habilidades, setHabilidade }) {
-    const [mensagem, setMensagem] = useState({ habilidade: "", message: ""})
+export function MostrarHabilidade({ habilidades, setHabilidade }) {
+    const [mensagem, setMensagem] = useState({ habilidade: "", message: ""});
 
     return (
         <>
@@ -25,5 +25,15 @@ export default function MostrarHabilidade({ habilidades, setHabilidade }) {
                 </div>
             ))}
         </>
-    )
+    );
+}
+
+export function ExibirHabilidade({ habilidades }) {
+    return (
+        <>
+            {habilidades.map((key) => (
+                <p>{key}: {itens[key]}</p>
+            ))}
+        </>
+    );
 }

@@ -1,7 +1,7 @@
-import "./Style.css"
-import MostrarHabilidade from "./Habilidades"
-import { useEffect, useState } from "react"
-import itens from "./habilidades.json";
+import "./Style.css";
+import { MostrarHabilidade } from "./Habilidades";
+import { useEffect, useState } from "react";
+import { itens } from "./habilidades.json";
 
 export function BasicInformation({ info, setInfo, settarValores }) {
     return (
@@ -28,7 +28,7 @@ export function BasicInformation({ info, setInfo, settarValores }) {
                 </div>
             </div>
         </div>
-    )
+    );
 }
 
 export function Habilidade({ habilidades, setHabilidade }) {
@@ -36,7 +36,7 @@ export function Habilidade({ habilidades, setHabilidade }) {
 
     useEffect(() => {
         document.body.style.overflow = showHabilidade ? "hidden" : "auto"
-    }, [showHabilidade])
+    }, [showHabilidade]);
 
     return (
         <div id="habilidade">
@@ -65,7 +65,7 @@ export function Habilidade({ habilidades, setHabilidade }) {
                 </div>
             )}
         </div>
-    )
+    );
 }
 
 export function Classe() {
@@ -76,7 +76,7 @@ export function Classe() {
             <h4>Especialidade</h4>
             <p>tem que fazer</p>
         </div>
-    )
+    );
 }
 
 export function Atributos({ atributos, setAtributos, buffs, setBuffs, settarValores }) {
@@ -94,7 +94,7 @@ export function Atributos({ atributos, setAtributos, buffs, setBuffs, settarValo
             <input className="form-control" name="tamanho" value={buffs.tamanho} onChange={e => settarValores(e, setBuffs)} type="number" /></label><br /> 
             {atributos.tamanho && <span>{`1d${4+2*(Number(atributos.tamanho)+Number(buffs.tamanho))}`}</span>}<br />
         </div>
-    )
+    );
 }
 
 export function Pericias({ pericias, setPericias, buffs, setBuffs, settarValores, definirSorte }) {
@@ -135,5 +135,5 @@ export function Pericias({ pericias, setPericias, buffs, setBuffs, settarValores
             <label>Sorte: <span>{pericias.sorte} </span><button id="btnSorte" onClick={definirSorte}>3d4+2</button>
             <input className="form-control" name="sorte" value={buffs.sorte} onChange={e => settarValores(e, setBuffs)} type="number" /></label><br /> 
         </div>
-    )
+    );
 }
