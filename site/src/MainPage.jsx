@@ -21,15 +21,15 @@ function CriarCharacter() {
             alert("Preencha todas informações pessoais!")
             return
         }
-        // if (!habilidades) {
-        //     alert("Preencha a habilidade!")
-        //     return
-        // }
+        if (habilidades.length == 0) {
+            alert("Escolha uma habilidade!")
+            return
+        }
         // if (!classes.classe || !classes.especialidade) {
         //     alert("Preencha toda a classe do personagem!")
         //     return
         // }
-        if (!atributos.aparencia || !atributos.sabedoria || !atributos.tamanho) {
+        if (atributos.aparencia === "" || !atributos.sabedoria || !atributos.tamanho) {
             alert("Preencha todos atributos antes de continuar!")
             return
         }
@@ -49,10 +49,12 @@ function CriarCharacter() {
         <>
             {!concluido ? (
                 <>
-                    <h1>Faça o NPC</h1>
+                    <h1>Faça o Personagem</h1>
+                    <hr />
                     <BasicInformation info={info} setInfo={setInfo} settarValores={settarValores} />
                     <hr />
                     <Habilidade habilidades={habilidades} setHabilidade={setHabilidade} />
+                    <hr />
                     <Classe />
                     <hr />
                     <Atributos atributos={atributos} setAtributos={setAtributos} buffs={buffs} setBuffs={setBuffs} settarValores={settarValores} />
@@ -63,8 +65,8 @@ function CriarCharacter() {
                 </>
             ) : (
                 <>
-                    <h1>Layout da ficha do NPC</h1>
-                    <Ficha info={info} atributos={atributos} pericias={pericias} buffs={buffs} />
+                    <h1>Layout da ficha</h1>
+                    <Ficha info={info} habilidades={habilidades} atributos={atributos} pericias={pericias} buffs={buffs} />
                 </>
             )}
         </>

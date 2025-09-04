@@ -1,4 +1,5 @@
 import { useState } from "react"
+import itens from "./habilidades.json";
 
 function AcaoPenalidade({ label, valor }) {
     const [penalidade, setPenalidade] = useState(true)
@@ -20,7 +21,17 @@ function Vantagem() {
     )
 }
 
-export default function Ficha({ info, atributos, pericias, buffs }) {
+function ExibirHabilidade({ habilidades }) {
+    return (
+        <>
+            {habilidades.map((key) => (
+                <p>{key}: {itens[key]}</p>
+            ))}
+        </>
+    );
+}
+
+export default function Ficha({ info, habilidades, atributos, pericias, buffs }) {
     let somaPericias = 0
     let somaBuffs = 0
     for (const chave in pericias) {
@@ -56,7 +67,7 @@ export default function Ficha({ info, atributos, pericias, buffs }) {
             <p>Tamanho: {atributos.tamanho}{buffs.tamanho != 0 ? "+" + buffs.tamanho : ""} -- 1d{4+2*(atributos.tamanho+buffs.tamanho)}</p>
             <br />
             <p>Habilidade:</p>
-            <p>tem que fazer</p>
+            <ExibirHabilidade habilidades={habilidades} />
             <p>Classe: tem que fazer</p>
             <p>Especialidade: tem que fazer</p>
             <br />
