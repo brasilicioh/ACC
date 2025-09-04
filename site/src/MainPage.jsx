@@ -1,6 +1,6 @@
-import { useState } from 'react'
-import Ficha from './LayoutFicha'
-import { BasicInformation, Habilidade, Classe, Atributos, Pericias } from './Entradas.jsx'
+import { useState } from "react"
+import Ficha from "./LayoutFicha"
+import { BasicInformation, Habilidade, Classe, Atributos, Pericias } from "./Entradas.jsx"
 
 function CriarCharacter() {
     const [info, setInfo] = useState({nome: "", idade: "", nascimento: "", historia: ""})
@@ -79,7 +79,7 @@ function MainChoice({ onEscolher }) {
             <div className="container">
                 <h1 className="text-center">Escolha a sua opção</h1>
                 <div className="row justify-content-center">
-                    <button type="button" className="btn btn-info btn-lg btn-block firtsButton" onClick={() => onEscolher('character')}>Criar Personagem</button>
+                    <button type="button" className="btn btn-info btn-lg btn-block firtsButton" onClick={() => onEscolher("character")}>Criar Personagem</button>
                 </div>
                 <div className="row justify-content-center">
                     <a className="btn btn-info btn-lg btn-block firtsButton" href="https://brasilicioh.github.io/simuladorDados/" role="button">Simulador Dados</a>
@@ -90,12 +90,12 @@ function MainChoice({ onEscolher }) {
 }
 
 export default function App() {
-    const [tela, setTela] = useState('menu')
+    const [tela, setTela] = useState("menu")
 
     return (
         <>
-            {tela === 'menu' && <MainChoice onEscolher={setTela} />}
-            {tela === 'character' && <CriarCharacter />}
+            {tela === "menu" && <MainChoice onEscolher={setTela} />}
+            {tela === "character" && <CriarCharacter />}
         </>
     )
 }
