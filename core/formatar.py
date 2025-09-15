@@ -1,8 +1,8 @@
 import json
 
-classes = {}
+classes = {"Sem Classe": ""}
 especialidades = {}
-habilidades = {}
+habilidades = {"Sem Habilidade": ""}
 
 with open("classes.txt", "r", encoding="utf-8") as file:
     text = file.read()

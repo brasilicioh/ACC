@@ -1,5 +1,6 @@
 {
   "classes": {
+    "Sem Classe": "",
     "Atleta": "Você sempre participou de esportes, atividades físicas e, às vezes, competições desportivas.\nEscolha um esporte ou atividade física para ser especialista (converse com o mestre para definir os benefícios).\n+1 em Aparência e Tamanho (máx: 3).\n+2 e vantagem em Vigor (máx: 16).\n+2 em Destreza, Percepção ou Poder (escolha um – máx: 16).\n+1 em Força (máx: 13).\n-1 em Lábia e Técnica (mín: 0).\n+2 PV e +2 SM, além de +1d6 para adicionar em um deles (à sua escolha).\nVantagem em uma ação de Destreza (exceto Esquivar e Furtividade).\nVantagem em uma ação de Precisão (exceto Atirar).\nSem penalidade em Escalar, Natureza e Atirar.",
     "Famoso": "Você participou de algo que o tornou famoso. Tem muitos seguidores nas redes sociais, e muitas pessoas podem reconhecê-lo.\nUma vez por sessão, pode escolher um NPC para já conhecer você (caso ele ainda não conheça). Ele não mentirá e confiará em você (dependendo da situação). Todos os testes de Lábia e Persuasão com esse NPC são sempre bem-sucedidos.\nEscolha como ficou famoso (converse com o mestre para definir os benefícios).\n+2 em Aparência.\n+2 em Psicologia (máx: 16).\n-1 em Força (mín: 0).\n+8 SM.\n+4 em Artes.\nSem penalidade em Artes e História ou Ilusão.",
     "Inteligente": "Você dedicou parte da sua vida aos estudos. Entre seus colegas e amigos, costuma ser considerado o mais inteligente.\nEscolha um assunto (geral ou específico) para ser especialista (converse com o mestre para definir os benefícios).\nUma vez por sessão e por combate, você pode fazer uma análise de campo com teste de Intelecto (como ação bônus). Se passar, você pode ter 2 vantagens em achar pontos cegos, fugir ou achar algo no local.\n+2 em Sabedoria (máx: 5).\n+2 e vantagem em Intelecto (máx: 16).\n+1 e vantagem em duas ações de Intelecto (à sua escolha).\nSem penalidade em Natureza, História, Buscar e Ilusão ou Dirigir.",
@@ -56,6 +57,7 @@
     }
   },
   "habilidades": {
+    "Sem Habilidade": "",
     "Ambidestro": "Você é capaz de utilizar ambos os lados do corpo com proficiência. Se possível, pode portar dois itens simultaneamente e usá-los normalmente em um único turno, como preferir.",
     "Acadêmico": "Após se esforçar em algo que ainda não domina, você pode obter vantagem nessa tarefa e +1 no dado, temporariamente. Para se esforçar, você pode: estudar, aprender com alguém, tentar instintivamente, copiar, etc. (O teste depende do que está tentando aprender). Sem penalidade em Natureza, História, Artes e Buscar.",
     "Ágil": "Você recebe 4 pontos para distribuir em ações de Destreza. Ganha vantagem em Destreza. Pode escolher ser o primeiro a atacar. Sem penalidade em Escalar.",

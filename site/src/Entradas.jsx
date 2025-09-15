@@ -102,7 +102,7 @@ export function Classe({ classe, setClasse, especialidades, setEspecialidade }) 
                     </div>
                 )}
             </div>
-            {classe === "" ? (
+            {classe === "" || classe === "Sem Classe" ? (
                 null
             ) : (
                 <div id="especialidades">
