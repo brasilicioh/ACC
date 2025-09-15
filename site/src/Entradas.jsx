@@ -1,7 +1,7 @@
 import "./Style.css";
-import { MostrarHabilidade } from "./Habilidades";
+import { MostrarAdicional } from "./Adicionais.jsx";
 import { useEffect, useState } from "react";
-import adicionais from "./adicionais.json";
+import buffs from "./adicionais.json";
 
 export function BasicInformation({ info, setInfo, settarValores }) {
     return (
@@ -36,7 +36,7 @@ export function Habilidade({ habilidades, setHabilidade }) {
 
     useEffect(() => {
         document.body.style.overflow = showHabilidade ? "hidden" : "auto"
-    }, [showHabilidade]);
+    });
 
     return (
         <div id="habilidade">
@@ -46,10 +46,10 @@ export function Habilidade({ habilidades, setHabilidade }) {
                 <div className="popUp">
                     <div className="container">
                         <div className="sticky-top d-flex justify-content-between align-items-center">
-                            {habilidades.length > 0 ? <h4>Habilidades escolhidas: {habilidades.join(", ")}</h4> : <h4></h4>}
+                            {habilidades.length > 0 ? <h4>Habilidades escolhidas: {habilidades.join(", ")}</h4> : <h4>Nenhuma Habilidade escolhida</h4>}
                             <span onClick={() => setShowHabilidade(false)} className="close">&times;</span>
                         </div>
-                        <MostrarHabilidade habilidades={habilidades} setHabilidade={setHabilidade} />
+                        <MostrarAdicional isClasseHabili={"Habilidade"} adicionais={habilidades} setAdicionais={setHabilidade} />
                     </div>
                 </div>
             ) : (
@@ -58,7 +58,7 @@ export function Habilidade({ habilidades, setHabilidade }) {
                         <div className="col" key={key}>
                             <small className="d-block p-2 border rounded h-100">
                                 <h4>{key}</h4>
-                                <p>{adicionais["habilidades"][key]}</p>
+                                <p>{buffs["habilidades"][key]}</p>
                             </small>
                         </div>
                     ))}
@@ -68,14 +68,71 @@ export function Habilidade({ habilidades, setHabilidade }) {
     );
 }
 
-export function Classe() {
+export function Classe({ classe, setClasse, especialidades, setEspecialidade }) {
+    const [showClasse, setShowClasse] = useState(false);
+    const [showEspecialidade, setShowEspecialidade] = useState(false);
+
+    useEffect(() => {
+        document.body.style.overflow = (showClasse || showEspecialidade) ? "hidden" : "auto"
+    });
+
     return (
-        <div id="classe">
-            <h4>Classe</h4>
-            <p>tem que fazer</p>
-            <h4>Especialidade</h4>
-            <p>tem que fazer</p>
-        </div>
+        <>
+            <div id="classes">
+                <h4>Classes</h4>
+                <button onClick={() => setShowClasse(true)}>Escolher Classe</button>
+                {showClasse ? (
+                    <div className="popUp">
+                        <div className="container">
+                            <div className="sticky-top d-flex justify-content-between align-items-center">
+                                {classe != "" ? <h4>Classe escolhida: {classe.concat(".")}</h4> : <h4>Nenhuma Classe escolhida</h4>}
+                                <span onClick={() => setShowClasse(false)} className="close">&times;</span>
+                            </div>
+                            <MostrarAdicional isClasseHabili={"Classe"} adicionais={classe} setAdicionais={setClasse} setEspeci={setEspecialidade} />
+                        </div>
+                    </div>
+                ) : classe == "" ? null : (
+                    <div className="row g-0">
+                        <div className="col" key={classe}>
+                            <small className="d-block p-2 border rounded h-100">
+                                <h4>{classe}</h4>
+                                <p className="quebraLinha">{buffs["classes"][classe]}</p>
+                            </small>
+                        </div>
+                    </div>
+                )}
+            </div>
+            {classe === "" ? (
+                null
+            ) : (
+                <div id="especialidades">
+                    <h4>Especialidades</h4>
+                    <button onClick={() => setShowEspecialidade(true)}>Escolher Especialidade</button>
+                    {showEspecialidade ? (
+                        <div className="popUp">
+                            <div className="container">
+                                <div className="sticky-top d-flex justify-content-between align-items-center">
+                                    {especialidades.length > 0 ? <h4>Habilidades escolhidas: {especialidades.join(", ")}</h4> : <h4>Nenhuma Especialidade Escolhida</h4>}
+                                    <span onClick={() => setShowEspecialidade(false)} className="close">&times;</span>
+                                </div>
+                                <MostrarAdicional isClasseHabili={"Especialidade"} adicionais={especialidades} setAdicionais={setEspecialidade} classeEspeci={classe} />
+                            </div>
+                        </div>
+                    ) : (
+                        <div className="row row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-6 g-0">
+                            {especialidades.map((key) => (
+                                <div className="col" key={key}>
+                                    <small className="d-block p-2 border rounded h-100">
+                                        <h4>{key}</h4>
+                                        <p>{buffs["especialidades"][classe][key]}</p>
+                                    </small>
+                                </div>
+                            ))}
+                        </div>
+                    )}
+                </div>
+            )}
+        </>
     );
 }
 

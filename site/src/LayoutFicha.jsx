@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ExibirHabilidade } from "./Habilidades.jsx";
+import { ExibirHabilidade } from "./Adicionais.jsx";
 
 function AcaoPenalidade({ label, valor }) {
     const [penalidade, setPenalidade] = useState(true);

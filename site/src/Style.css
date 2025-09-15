@@ -1,6 +1,7 @@
 * {
     margin: 1%;
     font-family: Arial, Helvetica, sans-serif;
+    text-align: justify;
 }
 
 .firtsButton {
@@ -19,7 +20,7 @@
     }
 }
 
-#habilidade {
+#habilidade, #classes, #especialidades {
     .popUp {
         position: fixed;
         top: 0;
@@ -90,4 +91,8 @@
             }
         }
     }
+}
+
+.quebraLinha {
+    white-space: pre-line;
 }
