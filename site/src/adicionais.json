@@ -1,0 +1,94 @@
+{
+  "classes": {
+    "Atleta": "Você sempre participou de esportes, atividades físicas e, às vezes, competições desportivas.\nEscolha um esporte ou atividade física para ser especialista (converse com o mestre para definir os benefícios).\n+1 em Aparência e Tamanho (máx: 3).\n+2 e vantagem em Vigor (máx: 16).\n+2 em Destreza, Percepção ou Poder (escolha um – máx: 16).\n+1 em Força (máx: 13).\n-1 em Lábia e Técnica (mín: 0).\n+2 PV e +2 SM, além de +1d6 para adicionar em um deles (à sua escolha).\nVantagem em uma ação de Destreza (exceto Esquivar e Furtividade).\nVantagem em uma ação de Precisão (exceto Atirar).\nSem penalidade em Escalar, Natureza e Atirar.",
+    "Famoso": "Você participou de algo que o tornou famoso. Tem muitos seguidores nas redes sociais, e muitas pessoas podem reconhecê-lo.\nUma vez por sessão, pode escolher um NPC para já conhecer você (caso ele ainda não conheça). Ele não mentirá e confiará em você (dependendo da situação). Todos os testes de Lábia e Persuasão com esse NPC são sempre bem-sucedidos.\nEscolha como ficou famoso (converse com o mestre para definir os benefícios).\n+2 em Aparência.\n+2 em Psicologia (máx: 16).\n-1 em Força (mín: 0).\n+8 SM.\n+4 em Artes.\nSem penalidade em Artes e História ou Ilusão.",
+    "Inteligente": "Você dedicou parte da sua vida aos estudos. Entre seus colegas e amigos, costuma ser considerado o mais inteligente.\nEscolha um assunto (geral ou específico) para ser especialista (converse com o mestre para definir os benefícios).\nUma vez por sessão e por combate, você pode fazer uma análise de campo com teste de Intelecto (como ação bônus). Se passar, você pode ter 2 vantagens em achar pontos cegos, fugir ou achar algo no local.\n+2 em Sabedoria (máx: 5).\n+2 e vantagem em Intelecto (máx: 16).\n+1 e vantagem em duas ações de Intelecto (à sua escolha).\nSem penalidade em Natureza, História, Buscar e Ilusão ou Dirigir.",
+    "Lutador": "Você treinou para lutar, seja com artes marciais ou em brigas de rua.\nEscolha um estilo de luta ou arte marcial (converse com o mestre para definir o benefício).\nEscolha um bônus para golpes físicos: +2 no valor do dado de dano (ex: de 1d4 vai para 1d6) ou +1 adicional no dano (ex: 1d4 +1).\nEscolha um dos conjuntos: +1 em Tamanho e -1 em Sabedoria (máx: 4 / mín: 0) ou +3 em Força e -1 em Intelecto (máx: 16 / mín: 0).\nRole 1d10: o valor rolado aumenta seus PV e reduz sua SM.\n+2 em Poder (máx: 14).\nVantagem em uma ação de combate físico (à sua escolha).\nSem penalidade em Natureza e Escalar.",
+    "Simples": "Você não tem talentos definidos, mas compensa com versatilidade.\n+1 ponto para distribuir entre os atributos (máx por atributo: 4).\n+6 pontos para distribuir entre as perícias (máx por perícia: 15).\n+1d6 em Sorte.\nEscolha uma perícia para ter vantagem.\nEscolha duas ações relacionadas à perícia escolhida para também ter vantagem. (Exceto: Lutar, Cortar, Contra-Atacar, Esquivar, Mirar e Atirar.)\nEscolha três das ações com penalidade para ignorar a penalidade."
+  },
+  "especialidades": {
+    "Atleta": {
+      "Atirador": "Você sabe atirar com precisão. +1 ou vantagem em Mirar. +2 de dano com armas de disparo. Sem penalidade em Atirar.",
+      "Atletismo": "+1 ou vantagem em Vigor (máx: 16). +2 PV e +2 SM.",
+      "Boxeador": "+1 ou vantagem em Lutar. +2 no dado de dano de golpes físicos (ex: 1d4 vira 1d6).",
+      "Corredor": "+1 ou vantagem em Destreza (máx: 16). +2 metros de movimentação. +2 e vantagem em Correr.",
+      "Escalador": "+2, vantagem e sucesso em Escalar. +1 em Reflexos.",
+      "Maratonista": "Você evita com mais facilidade estados negativos. Nunca fica Fadigado. +4 metros de movimentação.",
+      "Treinador": "Você treinou outros atletas. Sabe usar Apoiar com eficácia: aliados correm mais rápido e resistem melhor à fadiga.",
+      "Vencedor": "Escolha mais duas atividades físicas ou esportes para se tornar especialista."
+    },
+    "Famoso": {
+      "Ator": "+5 SM. +2 em Lábia, Persuasão e Mentir.",
+      "Dublê": "+1 em Força e Vigor (máx: 14). +2 em Acrobacia ou Equilíbrio. +6 PV.",
+      "Escritor": "Você publicou um livro autoral (esse livro pode passar novas ideias e interpretações à personagens que o leram). +2 e vantagem em História, Artes e Ilusão.",
+      "Influencer": "Você é um influencer digital e internacionalmente conhecido. Uma vez por sessão pode começar uma live ou fazer um post para conseguir apoio, recompensas etc.",
+      "Jornalista": "Você possui 5 contatos úteis (ver com o mestre). +2 em Investigar. +1 em Lábia.",
+      "Lindo": "+2 e vantagem em Charme. +1 em Aparência. Pode usar Aparência no lugar de Tamanho no cálculo de Dano Física.",
+      "Músico": "+4 em Persuasão. Você pode usar a Voz: pode animar e melhorar o estado emocional das pessoas ao seu redor com um teste de Persuasão."
+    },
+    "Inteligente": {
+      "Certeiro": "+2 em Precisão (máx: 16). Vantagem em Mirar. Sem penalidade em Atirar.",
+      "Conhecedor": "+2 em três das seguintes perícias: Atualidades, Bibliotecas, História, Artes, Natureza, Intuição ou Buscar.",
+      "Hacker": "+2 e vantagem em Técnica (máx: 16). Sem penalidade em Buscar, Hacker e Montar. +1 em Buscar e +3 em Hacker. Você sabe hackear muito bem.",
+      "Médico": "Sem penalidade em testes médicos. +2 em Medicina e Drogas. Vantagem em uma dessas duas (à sua escolha).",
+      "Pensador": "Você pensa rápido e reage melhor. +2 em Investigar. Pode usar Reflexos em vez de Esquivar para evitar ataques.",
+      "Programador": "+2 e vantagem em Técnica (máx: 16). Sem penalidade em Buscar, Hacker e Montar. +2 em Buscar e Montar. Você pode construir códigos úteis nas sessões (demanda tempo).",
+      "Sabichão": "Escolha mais dois assuntos (gerais ou específicos) para ser especialista."
+    },
+    "Lutador": {
+      "Armado": "Seus ataques físicos com armas causam +4 de dano.",
+      "Gigante": "+1 em Tamanho (máx: 5). -1 em Aparência (mín: 0). +2 de espaço na bolsa. Desvantagem em Equilíbrio.",
+      "Habilidoso": "Pode escolher mais um estilo de luta ou arte marcial.",
+      "Machucado": "+15 PV. +1 em Bloquear. -5 no valor máximo e atual de SM.",
+      "Mão Pesada": "+5 de dano em ataques físicos desarmados.",
+      "Preciso": "+1 em Precisão (máx: 14). Vantagem em uma ação de Precisão (exceto Atirar). Sem penalidade em Atirar.",
+      "Reação": "Escolha entre: +1 e vantagem em Esquivar ou +3 e vantagem em Reflexos."
+    },
+    "Simples": {
+      "Alto": "+6 de espaço na bolsa.",
+      "Anormal": "+1 ponto para distribuir entre os atributos (máx: 4).",
+      "Atualizado": "Pode não ter penalidade em ações tecnológicas. +1 em Técnica. +2 em Buscar e Atualidades.",
+      "Baixo": "Escolha entre: +2 em Correr e +1 metro de movimentação, ou +1 em Furtividade.",
+      "Militar": "+1 em Atirar. +2 de dano com armas de fogo. -6 SM. Sem penalidade em Atirar.",
+      "Normal": "+4 pontos para distribuir nas Perícias (máx: 15 por perícia). Você pode ser ignorado pelas pessoas. Você é muito normal.",
+      "Sortudo": "+2 em Sorte. Você pode girar novamente um teste desastroso uma vez por sessão.",
+      "Trabalhador": "Você pode escolher o seu trabalho (você recebe dinheiro a mais, um item, um contato, uma habilidade e coisas semelhantes por essa profissão)."
+    }
+  },
+  "habilidades": {
+    "Ambidestro": "Você é capaz de utilizar ambos os lados do corpo com proficiência. Se possível, pode portar dois itens simultaneamente e usá-los normalmente em um único turno, como preferir.",
+    "Acadêmico": "Após se esforçar em algo que ainda não domina, você pode obter vantagem nessa tarefa e +1 no dado, temporariamente. Para se esforçar, você pode: estudar, aprender com alguém, tentar instintivamente, copiar, etc. (O teste depende do que está tentando aprender). Sem penalidade em Natureza, História, Artes e Buscar.",
+    "Ágil": "Você recebe 4 pontos para distribuir em ações de Destreza. Ganha vantagem em Destreza. Pode escolher ser o primeiro a atacar. Sem penalidade em Escalar.",
+    "Atento": "Vantagem em testes e ações de Percepção. +2 em Percepção. Você identifica truques (mágicas, ilusões, etc.). Sem penalidade em Buscar.",
+    "Atual": "Ganha +2 na perícia Técnica e +2 em todas as ações de Técnica. Sem penalidade em Montar, Buscar e Hacker. Distribui 4 vantagens entre essas ações.",
+    "Bruto": "Escolha entre: vantagem e +3 em Agarrar ou Derrubar; a opção não escolhida terá -1. Um sucesso bom em Lutar, permite você rolar dois dados de dano e escolher o melhor. Sem penalidade em Escalar.",
+    "Carismático": "Você tem bom carisma. Todos gostam de você. Em primeiras impressões sociais, você sempre tem sucesso e vantagem. +1 em Aparência e Psicologia. Pode repetir o teste de persuasão (se repetir e o valor for menor, continua com esse menor).",
+    "Cientista Louco": "Você pode iniciar o jogo com um item (de preferência, não ofensivo) criado por você. Com peças improvisadas você pode criar coisas. +2 em Técnica. Desvantagem em Psicologia. Sem penalidade em ações de Técnica.",
+    "Concentrado": "Se passar uma rodada se concentrando, role 1d10. O número obtido indica por quantas rodadas você terá vantagem em ações relacionadas à situação, além de +2 em qualquer dado nessas rodadas. Usável uma vez por sessão. Após usar, fica exausto por uma cena.",
+    "Corajoso": "Você ignora penalidades em situações que exigem coragem. Ganha vantagem em testes e +10 em Saúde Mental.",
+    "Detetive": "Ganha vantagem e +2 em Intelecto. +1 em Intuição e Investigar. Nessas ações, só fracassa se for um fracasso desastroso. Sem penalidade em História, Artes e Buscar.",
+    "Domador de Feras": "Sempre obtém sucesso em Acalmar. Animais ferozes em sua presença podem hesitar em atacar, dependendo de suas ações. Você tem maestria em domar animais. Pode-se entender o que eles expressam com um teste de Intelecto. Sem penalidade em Natureza e Ilusão.",
+    "Enganador": "Vantagem em testes de enganação (Mentir, Lábia etc). Mesmo que tenha sido pego na mentira; pode repetir o teste e a mentira on RP (e talvez tenha sucesso). Você consegue fingir estar em algum estado (cansado, ferido, morto etc).",
+    "Furtivo": "+3 e vantagem em Furtividade. Sem penalidade em Ilusão.",
+    "Gênio": "Escolha entre: +1 em Sabedoria e +3 em Intelecto ou +2 e +1 respectivamente. Vantagem em testes e ações de Intelecto. Sem penalidade em Natureza, História, Drogas ou Artes.",
+    "Grande": "+5 de espaço na bolsa, +10 PV e +1 em Tamanho. Desvantagem em testes de Furtividade e Destreza.",
+    "Imune": "Seu corpo é totalmente imune, interna e externamente. Menor chance de sofrer estados negativos. Não recebe danos massivos. O estado \"Morrendo\" dura 5 rodadas.",
+    "Mágico": "Você é um grande ilusionista. Sempre terá sucesso, vantagem e +3 em Ilusão. +2 e vantagem em Artes. +5 pontos de Saúde Mental. Sem penalidade em Ilusão e Artes.",
+    "Mano a Mano": "Você ganha vantagem em qualquer ação de combate corpo a corpo. +2 de dano em golpes físicos.",
+    "Maromba": "Escolha entre: +1 em Força e +4 de dano físico; ou +2 em Força e +1 de dano físico. Sem penalidade em Escalar.",
+    "Médico": "Os três primeiros kits médicos que você carrega contam como apenas um. Cada kit médico cura 2d10+6 PV (em vez de 2d8+2). Vantagem em ações médicas. Sem penalidade em Medicina e Drogas.",
+    "Mentalista": "Você sempre terá sucesso em um dos seguintes testes (escolha um): Lábia, Persuasão ou Mentir. Vantagem em Persuasão e Mentir. Escolha entre: +1 em Lábia ou +3 em Persuadir. Sem penalidade em Ilusão e Artes.",
+    "Metralhador": "Pode portar um rifle avançado. Se mirar por um turno, pode disparar dois tiros: o primeiro com vantagem, o segundo normal. +4 de dano com rifles. Sem penalidade em Atirar.",
+    "Piloto": "Sempre terá sucesso e vantagem em testes de direção com dois veículos escolhidos. Nos demais, apenas vantagem. +2 em Dirigir. Sem penalidade em Dirigir.",
+    "Pistoleiro": "Vantagem em Mirar e Atirar com pistolas (revólveres). Pode disparar dois tiros: Sem mirar: ambos normais. Mirando e atirando no mesmo turno: ambos com vantagem. Mirando por um turno: primeiro tiro é sucesso automático, segundo com vantagem. Sem penalidade em Atirar.",
+    "Poderoso": "Você é uma pessoa naturalmente poderosa: +2 em Poder, +1d6 de SM e pode escolher uma especialidade de classe extra. Sem penalidades.",
+    "Psicólogo": "+3 na perícia Psicologia. Vantagem em todas as ações da perícia. Distribua 4 pontos entre as ações de Psicologia.",
+    "Rápido": "Você é ágil e aproveita bem seu tempo. Em combate, pode realizar uma ação bônus extra ou substituir suas ações bônus por uma principal. +1 em Correr. Sem penalidade em Escalar.",
+    "Resistente": "Você possui \"armadura natural\", reduzindo em dois qualquer dano recebido. +1d20 em PV. Imune a dano massivo e a certos debuffs.",
+    "Rico": "Adicione R$ 3.500 ao seu dinheiro inicial. Sem penalidade em História.",
+    "Sentido Apurado": "Seus cinco sentidos são aguçados e resistentes. +3 vantagens em testes que os utilizem (desde que seja narrado). Ter todos os sentidos apurados pode ter efeitos colaterais.",
+    "Sniper": "Usando uma sniper, +2 em Mirar. Pode portar uma sniper média. Se mirar por um turno:  +3 de dano em sucesso normal; +6 com sucesso bom; +9 com sucesso extremo. Sem penalidade em Atirar.",
+    "Simplório": "Por ser simples, escolha entre: +4 em Sorte ou jogar 3d20 e usar o melhor resultado como nova Sorte. +2 pontos para distribuir em perícias. Sem penalidade em Artes e Buscar.",
+    "Usuário de Espada": "+2 na ação Cortar. Escolha entre: +4 de dano ou vantagem em Cortar."
+  }
+}

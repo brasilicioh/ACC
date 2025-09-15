@@ -1,0 +1,51 @@
+Atleta
+Você sempre participou de esportes, atividades físicas e, às vezes, competições desportivas.
+Escolha um esporte ou atividade física para ser especialista (converse com o mestre para definir os benefícios).
++1 em Aparência e Tamanho (máx: 3).
++2 e vantagem em Vigor (máx: 16).
++2 em Destreza, Percepção ou Poder (escolha um – máx: 16).
++1 em Força (máx: 13).
+-1 em Lábia e Técnica (mín: 0).
++2 PV e +2 SM, além de +1d6 para adicionar em um deles (à sua escolha).
+Vantagem em uma ação de Destreza (exceto Esquivar e Furtividade).
+Vantagem em uma ação de Precisão (exceto Atirar).
+Sem penalidade em Escalar, Natureza e Atirar.
+
+Famoso
+Você participou de algo que o tornou famoso. Tem muitos seguidores nas redes sociais, e muitas pessoas podem reconhecê-lo.
+Uma vez por sessão, pode escolher um NPC para já conhecer você (caso ele ainda não conheça). Ele não mentirá e confiará em você (dependendo da situação). Todos os testes de Lábia e Persuasão com esse NPC são sempre bem-sucedidos.
+Escolha como ficou famoso (converse com o mestre para definir os benefícios).
++2 em Aparência.
++2 em Psicologia (máx: 16).
+-1 em Força (mín: 0).
++8 SM.
++4 em Artes.
+Sem penalidade em Artes e História ou Ilusão.
+
+Inteligente
+Você dedicou parte da sua vida aos estudos. Entre seus colegas e amigos, costuma ser considerado o mais inteligente.
+Escolha um assunto (geral ou específico) para ser especialista (converse com o mestre para definir os benefícios).
+Uma vez por sessão e por combate, você pode fazer uma análise de campo com teste de Intelecto (como ação bônus). Se passar, você pode ter 2 vantagens em achar pontos cegos, fugir ou achar algo no local.
++2 em Sabedoria (máx: 5).
++2 e vantagem em Intelecto (máx: 16).
++1 e vantagem em duas ações de Intelecto (à sua escolha).
+Sem penalidade em Natureza, História, Buscar e Ilusão ou Dirigir.
+
+Lutador
+Você treinou para lutar, seja com artes marciais ou em brigas de rua.
+Escolha um estilo de luta ou arte marcial (converse com o mestre para definir o benefício).
+Escolha um bônus para golpes físicos: +2 no valor do dado de dano (ex: de 1d4 vai para 1d6) ou +1 adicional no dano (ex: 1d4 +1).
+Escolha um dos conjuntos: +1 em Tamanho e -1 em Sabedoria (máx: 4 / mín: 0) ou +3 em Força e -1 em Intelecto (máx: 16 / mín: 0).
+Role 1d10: o valor rolado aumenta seus PV e reduz sua SM.
++2 em Poder (máx: 14).
+Vantagem em uma ação de combate físico (à sua escolha).
+Sem penalidade em Natureza e Escalar.
+
+Simples
+Você não tem talentos definidos, mas compensa com versatilidade.
++1 ponto para distribuir entre os atributos (máx por atributo: 4).
++6 pontos para distribuir entre as perícias (máx por perícia: 15).
++1d6 em Sorte.
+Escolha uma perícia para ter vantagem.
+Escolha duas ações relacionadas à perícia escolhida para também ter vantagem. (Exceto: Lutar, Cortar, Contra-Atacar, Esquivar, Mirar e Atirar.)
+Escolha três das ações com penalidade para ignorar a penalidade.

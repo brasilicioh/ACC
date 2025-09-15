@@ -1,0 +1,46 @@
+Atleta
+Atirador:  Você sabe atirar com precisão. +1 ou vantagem em Mirar. +2 de dano com armas de disparo. Sem penalidade em Atirar.
+Atletismo:  +1 ou vantagem em Vigor (máx: 16). +2 PV e +2 SM.
+Boxeador:  +1 ou vantagem em Lutar. +2 no dado de dano de golpes físicos (ex: 1d4 vira 1d6).
+Corredor:  +1 ou vantagem em Destreza (máx: 16). +2 metros de movimentação. +2 e vantagem em Correr.
+Escalador:  +2, vantagem e sucesso em Escalar. +1 em Reflexos.
+Maratonista:  Você evita com mais facilidade estados negativos. Nunca fica Fadigado. +4 metros de movimentação.
+Treinador:  Você treinou outros atletas. Sabe usar Apoiar com eficácia: aliados correm mais rápido e resistem melhor à fadiga.
+Vencedor:  Escolha mais duas atividades físicas ou esportes para se tornar especialista.
+
+Famoso
+Ator:  +5 SM. +2 em Lábia, Persuasão e Mentir.
+Dublê:  +1 em Força e Vigor (máx: 14). +2 em Acrobacia ou Equilíbrio. +6 PV.
+Escritor:  Você publicou um livro autoral (esse livro pode passar novas ideias e interpretações à personagens que o leram). +2 e vantagem em História, Artes e Ilusão.
+Influencer:  Você é um influencer digital e internacionalmente conhecido. Uma vez por sessão pode começar uma live ou fazer um post para conseguir apoio, recompensas etc.
+Jornalista:  Você possui 5 contatos úteis (ver com o mestre). +2 em Investigar. +1 em Lábia.
+Lindo:  +2 e vantagem em Charme. +1 em Aparência. Pode usar Aparência no lugar de Tamanho no cálculo de Dano Física.
+Músico:  +4 em Persuasão. Você pode usar a Voz: pode animar e melhorar o estado emocional das pessoas ao seu redor com um teste de Persuasão.
+
+Inteligente
+Certeiro:  +2 em Precisão (máx: 16). Vantagem em Mirar. Sem penalidade em Atirar.
+Conhecedor:  +2 em três das seguintes perícias: Atualidades, Bibliotecas, História, Artes, Natureza, Intuição ou Buscar.
+Hacker:  +2 e vantagem em Técnica (máx: 16). Sem penalidade em Buscar, Hacker e Montar. +1 em Buscar e +3 em Hacker. Você sabe hackear muito bem.
+Médico:  Sem penalidade em testes médicos. +2 em Medicina e Drogas. Vantagem em uma dessas duas (à sua escolha).
+Pensador:  Você pensa rápido e reage melhor. +2 em Investigar. Pode usar Reflexos em vez de Esquivar para evitar ataques.
+Programador:  +2 e vantagem em Técnica (máx: 16). Sem penalidade em Buscar, Hacker e Montar. +2 em Buscar e Montar. Você pode construir códigos úteis nas sessões (demanda tempo).
+Sabichão:  Escolha mais dois assuntos (gerais ou específicos) para ser especialista.
+
+Lutador
+Armado:  Seus ataques físicos com armas causam +4 de dano.
+Gigante:  +1 em Tamanho (máx: 5). -1 em Aparência (mín: 0). +2 de espaço na bolsa. Desvantagem em Equilíbrio.
+Habilidoso:  Pode escolher mais um estilo de luta ou arte marcial.
+Machucado:  +15 PV. +1 em Bloquear. -5 no valor máximo e atual de SM.
+Mão Pesada:  +5 de dano em ataques físicos desarmados.
+Preciso:  +1 em Precisão (máx: 14). Vantagem em uma ação de Precisão (exceto Atirar). Sem penalidade em Atirar.
+Reação:  Escolha entre: +1 e vantagem em Esquivar ou +3 e vantagem em Reflexos.
+
+Simples
+Alto:  +6 de espaço na bolsa.
+Anormal:  +1 ponto para distribuir entre os atributos (máx: 4).
+Atualizado:  Pode não ter penalidade em ações tecnológicas. +1 em Técnica. +2 em Buscar e Atualidades.
+Baixo:  Escolha entre: +2 em Correr e +1 metro de movimentação, ou +1 em Furtividade.
+Militar:  +1 em Atirar. +2 de dano com armas de fogo. -6 SM. Sem penalidade em Atirar.
+Normal:  +4 pontos para distribuir nas Perícias (máx: 15 por perícia). Você pode ser ignorado pelas pessoas. Você é muito normal.
+Sortudo:  +2 em Sorte. Você pode girar novamente um teste desastroso uma vez por sessão.
+Trabalhador:  Você pode escolher o seu trabalho (você recebe dinheiro a mais, um item, um contato, uma habilidade e coisas semelhantes por essa profissão).

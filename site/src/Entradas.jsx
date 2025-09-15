@@ -1,7 +1,7 @@
 import "./Style.css";
 import { MostrarHabilidade } from "./Habilidades";
 import { useEffect, useState } from "react";
-import itens from "./habilidades.json";
+import adicionais from "./adicionais.json";
 
 export function BasicInformation({ info, setInfo, settarValores }) {
     return (
@@ -58,7 +58,7 @@ export function Habilidade({ habilidades, setHabilidade }) {
                         <div className="col" key={key}>
                             <small className="d-block p-2 border rounded h-100">
                                 <h4>{key}</h4>
-                                <p>{itens[key]}</p>
+                                <p>{adicionais["habilidades"][key]}</p>
                             </small>
                         </div>
                     ))}

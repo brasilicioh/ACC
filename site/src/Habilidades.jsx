@@ -1,4 +1,4 @@
-import itens from "./habilidades.json";
+import adicionais from "./adicionais.json";
 import { useState } from "react";
 
 function addHabilidade(habilidade, habilidades, setHabilidade, setMensagem) {
@@ -16,7 +16,7 @@ export function MostrarHabilidade({ habilidades, setHabilidade }) {
 
     return (
         <>
-            {Object.entries(itens).map(([key, value]) => (
+            {Object.entries(adicionais["habilidades"]).map(([key, value]) => (
                 <div key={key}>
                     <span onClick={() => addHabilidade(key, habilidades, setHabilidade, setMensagem)} className="addHabilidade">&#x0229E;</span>
                     {mensagem.habilidade == key && (<span>{mensagem.message}</span>)}
@@ -32,7 +32,7 @@ export function ExibirHabilidade({ habilidades }) {
     return (
         <>
             {habilidades.map((key) => (
-                <p>{key}: {itens[key]}</p>
+                <p>{key}: {adicionais["habilidades"][key]}</p>
             ))}
         </>
     );
