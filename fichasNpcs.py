@@ -193,7 +193,7 @@ Bloquear: {arredondaMenorInt((forca + vigor + poder) / 3 - 2)}
 Contra-atacar: {arredondaMenorInt((forca + destreza) / 2 - 1)}
 Cortar: {arredondaMenorInt((forca + destreza + precisao) / 3 + tamanho)}
 Derrubar: {arredondaMenorInt((forca + vigor + poder) / 3 + tamanho)}
-Lutar: {arredondaMenorInt((forca + vigor) / 2 + tamanho)}
+Lutar: {arredondaMenorInt(((2 * forca) + vigor) / 3 + tamanho)}
 
 Intelecto
 Artes{pen("artes")}: {arredondaMenorInt((intelecto + destreza + psicologia + poder) / 4 + aparencia + sabedoria)}
@@ -201,24 +201,24 @@ Atualidades: {arredondaMenorInt((intelecto + sorte) / 2 + sabedoria)}
 Bibliotecas: {arredondaMenorInt((intelecto + percepcao) / 2)}
 Drogas{pen("drogas")}: {arredondaMenorInt((intelecto + poder + percepcao) / 3 + sabedoria)}
 História{pen("historia")}: {arredondaMenorInt(intelecto + sabedoria)}
-Medicina{pen("medicina")}: {arredondaMenorInt((intelecto + precisao) / 2 + sabedoria)}
-Natureza{pen("natureza")}: {arredondaMenorInt(intelecto)}
+Medicina{pen("medicina")}: {arredondaMenorInt(((4 * intelecto) + precisao) / 5 + sabedoria)}
+Natureza{pen("natureza")}: {arredondaMenorInt(((3 * intelecto) + poder) / 4)}
 
 Percepção
 Encontrar: {arredondaMenorInt((percepcao + intelecto) / 2 + sabedoria)}
 Investigar: {arredondaMenorInt((percepcao + intelecto + poder + precisao) / 4)}
-Ouvir/Sentir: {arredondaMenorInt((percepcao + intelecto) / 2)}
+Ouvir/Sentir: {arredondaMenorInt(((3 * percepcao) + intelecto) / 4)}
 
 Precisão
 Arremessar: {arredondaMenorInt((precisao + forca) / 2)}
-Atirar{pen("atirar")}: {arredondaMenorInt((precisao + percepcao) / 2)}
+Atirar{pen("atirar")}: {arredondaMenorInt(((2 * precisao) + percepcao) / 3)}
 Dirigir{pen("direcao")}: {arredondaMenorInt((precisao + destreza) / 2 + sabedoria)}
 Equilibrar: {arredondaMenorInt((precisao + destreza + vigor + poder + sorte) / 5 - tamanho)}
 Ilusão{pen("ilusao")}: {arredondaMenorInt((precisao + destreza + poder) / 3 + aparencia)}
-Mirar: {arredondaMenorInt((precisao + destreza) / 2 + sabedoria)}
+Mirar: {arredondaMenorInt(((3 * precisao) + destreza + percepcao) / 5 + sabedoria)}
 
 Psicologia
-Acalmar: {arredondaMenorInt((psicologia + intelecto) / 2 + sabedoria)}
+Acalmar: {arredondaMenorInt(((3 * psicologia) + intelecto) / 4 + sabedoria)}
 Charme: {arredondaMenorInt((psicologia + labia) / 2 + 2 * aparencia)}
 Intimidar: {arredondaMenorInt((psicologia + poder + vigor) / 3 + tamanho)}
 Intuição: {arredondaMenorInt((psicologia + sorte + intelecto) / 3 + sabedoria)}
