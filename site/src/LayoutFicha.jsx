@@ -1,143 +1,224 @@
 import { useState } from "react";
 import { ExibirHabilidade } from "./Adicionais.jsx";
 
-function AcaoPenalidade({ label, valor }) {
-    const [penalidade, setPenalidade] = useState(true);
-    
-    return (
-        <p><span onClick={() => setPenalidade(e => !e)} style={{ cursor: "pointer" }}>{label}{penalidade ? "°" : ""}</span>: {valor} <Vantagem /></p>
-    );
+function Vantagem() {
+  const [vant, setVant] = useState(0);
+
+  return (
+    <>
+      {vant === 0 ? "" : vant > 0 ? `(${vant} vantagem)` : `(${vant * -1} desvantagem)`}
+      <span onClick={() => setVant(element => element + 1)} style={{ cursor: "pointer" }}>  +  </span>
+      <span onClick={() => setVant(element => element - 1)} style={{ cursor: "pointer" }}>  -  </span>
+    </>
+  );
 }
 
-function Vantagem() {
-    const [vant, setVant] = useState(0);
-    
-    return (
-        <>
-            {vant === 0 ? "(0)" : vant > 0 ? `(${vant} vantagem)` : `(${vant*-1} desvantagem)`} 
-            <span onClick={() => setVant(prev => prev + 1)} style={{ cursor: "pointer" }}>  +  </span>
-            <span onClick={() => setVant(prev => prev - 1)} style={{ cursor: "pointer" }}  >-  </span>
-        </>
-    );
+function ExibirValor({ label, valor, buff, havePenali = false }) {
+  let buffOut = "";
+  if (buff > 0) {
+    buffOut = "+" + buff;
+  } else if (buff < 0) {
+    buffOut = buff
+  }
+
+  switch (label) {
+    case "Aparência":
+    case "Sabedoria":
+    case "Total":
+      return (<p>{label}: {valor}{buffOut}</p>);
+    case "Tamanho":
+      return (<p>{label}: {valor}{buffOut} -- 1d{4 + 2 * (valor + buff)}</p>);
+  }
+
+  return (
+      <p>
+        {label}{havePenali ? "°" : ""}: {valor}{buffOut} <Vantagem />
+      </p>
+  );
 }
 
 export default function Ficha({ info, habilidades, atributos, pericias, buffs }) {
-    let somaPericias = 0;
-    let somaBuffs = 0;
-    for (const chave in pericias) {
-        somaPericias += pericias[chave];
-        somaBuffs += buffs[chave] || 0;
-    }
+  let somaPericias = 0;
+  let somaBuffs = 0;
+  for (const chave in pericias) {
+    somaPericias += pericias[chave];
+    somaBuffs += buffs[chave];
+  }
 
-    const aparencia = atributos.aparencia + buffs.aparencia;
-    const sabedoria = atributos.sabedoria + buffs.sabedoria;
-    const tamanho = atributos.tamanho + buffs.tamanho;
-    const destreza = pericias.destreza + buffs.destreza;
-    const forca = pericias.forca + buffs.forca;
-    const intelecto = pericias.intelecto + buffs.intelecto;
-    const labia = pericias.labia + buffs.labia;
-    const percepcao = pericias.percepcao + buffs.percepcao;
-    const poder = pericias.poder + buffs.poder;
-    const precisao = pericias.precisao + buffs.precisao;
-    const psicologia = pericias.psicologia + buffs.psicologia;
-    const tecnica = pericias.tecnica + buffs.tecnica;
-    const vigor = pericias.vigor + buffs.vigor;
-    const sorte = pericias.sorte + buffs.sorte;
+  const aparencia = atributos.aparencia + buffs.aparencia;
+  const sabedoria = atributos.sabedoria + buffs.sabedoria;
+  const tamanho = atributos.tamanho + buffs.tamanho;
+  const destreza = pericias.destreza + buffs.destreza;
+  const forca = pericias.forca + buffs.forca;
+  const intelecto = pericias.intelecto + buffs.intelecto;
+  const labia = pericias.labia + buffs.labia;
+  const percepcao = pericias.percepcao + buffs.percepcao;
+  const poder = pericias.poder + buffs.poder;
+  const precisao = pericias.precisao + buffs.precisao;
+  const psicologia = pericias.psicologia + buffs.psicologia;
+  const tecnica = pericias.tecnica + buffs.tecnica;
+  const vigor = pericias.vigor + buffs.vigor;
+  const sorte = pericias.sorte + buffs.sorte;
 
-    return (
-        <>
-            <p>Nome: {info.nome}</p>
-            <p>Idade: {info.idade}</p>
-            {info.nascimento != "" ? <p>Nascimento: {info.nascimento}</p> : null}
-            {info.historia != "" ? <p>História: {info.historia}</p> : null}
-            <br />
-            <p>ATRIBUTOS</p>
-            <p>Aparência: {atributos.aparencia}{buffs.aparencia != 0 ? "+" + buffs.aparencia : ""}</p>
-            <p>Sabedoria: {atributos.sabedoria}{buffs.sabedoria != 0 ? "+" + buffs.sabedoria : ""}</p>
-            <p>Tamanho: {atributos.tamanho}{buffs.tamanho != 0 ? "+" + buffs.tamanho : ""} -- 1d{4+2*(atributos.tamanho+buffs.tamanho)}</p>
-            <br />
-            <p>Habilidade:</p>
-            <ExibirHabilidade habilidades={habilidades} />
-            <p>Classe: tem que fazer</p>
-            <p>Especialidade: tem que fazer</p>
-            <br />
-            <p>Vida: {Math.floor((vigor + tamanho + 20) * 1.5)}/{Math.floor((vigor + tamanho + 20) * 1.5)}</p>
-            <p>Saúde Mental: {Math.floor((poder + sabedoria) * 2 + (psicologia / 3) + 15)}/{Math.floor((poder + sabedoria) * 2 + (psicologia / 3) + 15)}</p>
-            <br />
-            <p>Movimentação: {Math.floor((destreza + tamanho + 3) / 2)}m</p>
-            <br />
-            <p>Bolsa 0/{Math.floor(vigor + tamanho + (forca / 2))}:</p>
-            <br />
-            <p>Munição:</p>
-            <br />
-            <p>Dinheiro:</p>
-            <br />
-            <p>PERÍCIAS</p>
-            <p>Detreza: {pericias.destreza}{buffs.destreza != 0 ? "+" + buffs.destreza : ""} <Vantagem /></p>
-            <p>Força: {pericias.forca}{buffs.forca != 0 ? "+" + buffs.forca : ""} <Vantagem /></p>
-            <p>Intelecto: {pericias.intelecto}{buffs.intelecto != 0 ? "+" + buffs.intelecto : ""} <Vantagem /></p>
-            <p>Lábia: {pericias.labia}{buffs.labia != 0 ? "+" + buffs.labia : ""} <Vantagem /></p>
-            <p>Percepção: {pericias.percepcao}{buffs.percepcao != 0 ? "+" + buffs.percepcao : ""} <Vantagem /></p>
-            <p>Poder: {pericias.poder}{buffs.poder != 0 ? "+" + buffs.poder : ""} <Vantagem /></p>
-            <p>Precisão: {pericias.precisao}{buffs.precisao != 0 ? "+" + buffs.precisao : ""} <Vantagem /></p>
-            <p>Psicologia: {pericias.psicologia}{buffs.psicologia != 0 ? "+" + buffs.psicologia : ""} <Vantagem /></p>
-            <p>Técnica: {pericias.tecnica}{buffs.tecnica != 0 ? "+" + buffs.tecnica : ""} <Vantagem /></p>
-            <p>Vigor: {pericias.vigor}{buffs.vigor != 0 ? "+" + buffs.vigor : ""} <Vantagem /></p>
-            <p>Sorte: {pericias.sorte}{buffs.sorte != 0 ? "+" + buffs.sorte : ""} <Vantagem /></p>
-            <p>Total: {somaPericias}+{somaBuffs}</p>
-            <br />
-            <p>AÇÕES</p>
-            <br />
-            <p>Destreza</p>
-            <p>Acrobacia: {Math.floor((destreza + precisao) / 2)} <Vantagem /></p>
-            <p>Correr: {Math.floor((destreza + vigor) / 2)} <Vantagem /></p>
-            <AcaoPenalidade label={"Escalar"} valor={Math.floor((destreza + forca) / 2 - tamanho)} />
-            <p>Esquivar: {Math.floor((destreza + percepcao) / 2)} <Vantagem /></p>
-            <p>Furtividade: {Math.floor((destreza + intelecto) / 2)} <Vantagem /></p>
-            <p>Reflexos: {Math.floor((destreza + intelecto + percepcao) / 3 + sabedoria)} <Vantagem /></p>
-            <br />
-            <p>Força</p>
-            <p>Agarrar: {Math.floor((forca + vigor + destreza) / 3)} <Vantagem /></p>
-            <p>Bloquear: {Math.floor((forca + vigor + poder) / 3 - 2)} <Vantagem /></p>
-            <p>Contra-atacar: {Math.floor((forca + destreza) / 2 - 1)} <Vantagem /></p>
-            <p>Cortar: {Math.floor((forca + destreza + precisao) / 3 + tamanho)} <Vantagem /></p>
-            <p>Derrubar: {Math.floor((forca + vigor + poder) / 3 + tamanho)} <Vantagem /></p>
-            <p>Lutar: {Math.floor((forca + vigor) / 2 + tamanho)} <Vantagem /></p>
-            <br />
-            <p>Intelecto</p>
-            <AcaoPenalidade label={"Artes"} valor={Math.floor((intelecto + destreza + psicologia + poder) / 4 + aparencia + sabedoria)} />
-            <p>Atualidades: {Math.floor((intelecto + sorte) / 2 + sabedoria)} <Vantagem /></p>
-            <p>Bibliotecas: {Math.floor((intelecto + percepcao) / 2)} <Vantagem /></p>
-            <AcaoPenalidade label={"Drogas"} valor={Math.floor((intelecto + poder + percepcao) / 3 + sabedoria)} />
-            <AcaoPenalidade label={"História"} valor={Math.floor(intelecto + sabedoria)} />
-            <AcaoPenalidade label={"Medicina"} valor={Math.floor((intelecto + precisao) / 2 + sabedoria)} />
-            <AcaoPenalidade label={"Natureza"} valor={Math.floor(intelecto)} /> 
-            <br />
-            <p>Percepção</p>
-            <p>Encontrar: {Math.floor((percepcao + intelecto) / 2 + sabedoria)} <Vantagem /></p>
-            <p>Investigar: {Math.floor((percepcao + intelecto + poder + precisao) / 4)} <Vantagem /></p>
-            <p>Ouvir/Sentir: {Math.floor((percepcao + intelecto) / 2)} <Vantagem /></p>
-            <br />
-            <p>Precisão</p>
-            <p>Arremessar: {Math.floor((precisao + forca) / 2)} <Vantagem /></p>
-            <AcaoPenalidade label={"Atirar"} valor={Math.floor((precisao + percepcao) / 2)} />
-            <AcaoPenalidade label={"Dirigir"} valor={Math.floor((precisao + destreza) / 2 + sabedoria)} />
-            <p>Equilibrar: {Math.floor((precisao + destreza + vigor + poder + sorte) / 5 - tamanho)} <Vantagem /></p>
-            <AcaoPenalidade label={"Ilusão"} valor={Math.floor((precisao + destreza + poder) / 3 + aparencia)} />
-            <p>Mirar: {Math.floor((precisao + destreza) / 2 + sabedoria)} <Vantagem /></p>
-            <br />
-            <p>Psicologia</p>
-            <p>Acalmar: {Math.floor((psicologia + intelecto) / 2 + sabedoria)} <Vantagem /></p>
-            <p>Charme: {Math.floor((psicologia + labia) / 2 + 2 * aparencia)} <Vantagem /></p>
-            <p>Intimidar: {Math.floor((psicologia + poder + vigor) / 3 + tamanho)} <Vantagem /></p>
-            <p>Intuição: {Math.floor((psicologia + sorte + intelecto) / 3 + sabedoria)} <Vantagem /></p>
-            <p>Mentir: {Math.floor((psicologia + labia) / 3 + sabedoria + aparencia)} <Vantagem /></p>
-            <p>Persuadir: {Math.floor((psicologia + labia) / 2 + aparencia)} <Vantagem /></p>
-            <br />
-            <p>Técnica</p>
-            <AcaoPenalidade label={"Buscar"} valor={Math.floor((2 * tecnica + intelecto) / 3)} />
-            <AcaoPenalidade label={"Hacker"} valor={Math.floor((4 * tecnica + intelecto + destreza) / 8 + sabedoria/2)} />
-            <AcaoPenalidade label={"Montar"} valor={Math.floor((3 * tecnica + precisao) / 4 + sabedoria)} />
-        </>
-    );
+  return (
+    <>
+      {info.nome != "" ? <p>Nome: {info.nome}</p> : null}
+      {info.idade != "" ? <p>Idade: {info.idade}</p> : null}
+      {info.nascimento != "" ? <p>Nascimento: {info.nascimento}</p> : null}
+      {info.historia != "" ? <p>História: {info.historia}</p> : null}
+
+      <br />
+
+      <section>
+        <h2>ATRIBUTOS</h2>
+        <div>
+          <ExibirValor label={"Aparência"} valor={atributos.aparencia} buff={buffs.aparencia} />
+          <ExibirValor label={"Sabedoria"} valor={atributos.sabedoria} buff={buffs.sabedoria} />
+          <ExibirValor label={"Tamanho"} valor={atributos.tamanho} buff={buffs.tamanho} />
+        </div>
+      </section>
+
+      <br />
+
+      <section>
+        <h2>Habilidades:</h2>
+        <ExibirHabilidade habilidades={habilidades} />
+      </section>
+
+      <section>
+        <h2>Classe e Especialidade: tem que fazer</h2>
+      </section>
+
+      <br />
+
+      <p>
+        Vida: {Math.floor((vigor + tamanho + 20) * 1.5)}/{Math.floor((vigor + tamanho + 20) * 1.5)}
+      </p>
+
+      <p>
+        Saúde Mental: {Math.floor((poder + sabedoria) * 2 + psicologia / 3 + 15)}/{Math.floor((poder + sabedoria) * 2 + psicologia / 3 + 15)}
+      </p>
+
+      <br />
+
+      <p>Movimentação: {Math.floor((destreza + tamanho + 3) / 2)}m</p>
+
+      <br />
+
+      <p>Bolsa 0/{Math.floor(vigor + tamanho + forca / 2)}:</p>
+
+      <br />
+
+      <p>Munição:</p>
+
+      <br />
+
+      <p>Dinheiro:</p>
+
+      <br />
+
+      <section>
+        <h2>PERÍCIAS</h2>
+        <div>
+          <ExibirValor label={"Destreza"} valor={pericias.destreza} buff={buffs.destreza} />
+          <ExibirValor label={"Força"} valor={pericias.forca} buff={buffs.forca} />
+          <ExibirValor label={"Intelecto"} valor={pericias.intelecto} buff={buffs.intelecto} />
+          <ExibirValor label={"Lábia"} valor={pericias.labia} buff={buffs.labia} />
+          <ExibirValor label={"Percepção"} valor={pericias.percepcao} buff={buffs.percepcao} />
+          <ExibirValor label={"Poder"} valor={pericias.poder} buff={buffs.poder} />
+          <ExibirValor label={"Precisão"} valor={pericias.precisao} buff={buffs.precisao} />
+          <ExibirValor label={"Psicologia"} valor={pericias.psicologia} buff={buffs.psicologia} />
+          <ExibirValor label={"Técnica"} valor={pericias.tecnica} buff={buffs.tecnica} />
+          <ExibirValor label={"Vigor"} valor={pericias.vigor} buff={buffs.vigor} />
+          <ExibirValor label={"Sorte"} valor={pericias.sorte} buff={buffs.sorte} />
+          <ExibirValor label={"Total"} valor={somaPericias} buff={somaBuffs} />
+        </div>
+      </section>
+      
+      <br />
+
+      <section>
+        <h2>AÇÕES</h2>
+
+        <br />
+
+        <div>
+          <p>Destreza</p>
+          <ExibirValor label={"Acrobacia"} valor={Math.floor((destreza + precisao) / 2)} />
+          <ExibirValor label={"Correr"} valor={Math.floor((destreza + vigor) / 2)} />
+          <ExibirValor label={"Escalar"} valor={Math.floor((destreza + forca) / 2 - tamanho)} havePenali={true} />
+          <ExibirValor label={"Esquivar"} valor={Math.floor((destreza + percepcao) / 2)} />
+          <ExibirValor label={"Furtividade"} valor={Math.floor((destreza + intelecto) / 2)} />
+          <ExibirValor label={"Reflexos"} valor={Math.floor((destreza + intelecto + percepcao) / 3 + sabedoria)} havePenali={true} />
+        </div>
+
+        <br />
+
+        <div>
+          <p>Força</p>
+          <ExibirValor label={"Agarrar"} valor={Math.floor((forca + vigor + destreza) / 3)} />
+          <ExibirValor label={"Bloquear"} valor={Math.floor((forca + vigor + poder) / 3 - 2)} />
+          <ExibirValor label={"Contra-atacar"} valor={Math.floor((forca + destreza) / 2 - 1)} />
+          <ExibirValor label={"Cortar"} valor={Math.floor((forca + destreza + precisao) / 3 + tamanho)} />
+          <ExibirValor label={"Derrubar"} valor={Math.floor((forca + vigor + poder) / 3 + tamanho)} />
+          <ExibirValor label={"Lutar"} valor={Math.floor(((2 * forca) + vigor) / 3 + tamanho)} />
+        </div>
+
+        <br />
+
+        <div>
+          <p>Intelecto</p>
+          <ExibirValor label={"Artes"} valor={Math.floor((intelecto + destreza + psicologia + poder) / 4 + aparencia + sabedoria)} havePenali={true} />
+          <ExibirValor label={"Atualidades"} valor={Math.floor((intelecto + sorte) / 2 + sabedoria)} />
+          <ExibirValor label={"Bibliotecas"} valor={Math.floor((intelecto + percepcao) / 2)} />
+          <ExibirValor label={"Drogas"} valor={Math.floor((intelecto + poder + percepcao) / 3 + sabedoria)} havePenali={true} />
+          <ExibirValor label={"História"} valor={Math.floor(intelecto + sabedoria)} havePenali={true} />
+          <ExibirValor label={"Medicina"} valor={Math.floor(((4 * intelecto) + precisao) / 2 + sabedoria)} havePenali={true} />
+          <ExibirValor label={"Natureza"} valor={Math.floor(((3 * intelecto) + poder) / 4)} havePenali={true} />
+        </div>
+        
+        <br />
+
+        <div>
+          <p>Percepção</p>
+          <ExibirValor label={"Encontrar"} valor={Math.floor((percepcao + intelecto) / 2 + sabedoria)} />
+          <ExibirValor label={"Investigar"} valor={Math.floor((percepcao + intelecto + poder + precisao) / 4)} />
+          <ExibirValor label={"Ouvir/Sentir"} valor={Math.floor((3 * (percepcao) + intelecto) / 4)} />
+        </div>
+
+          <br />
+
+        <div>
+          <p>Precisão</p>
+          <ExibirValor label={"Arremessar"} valor={Math.floor((precisao + forca) / 2)} />
+          <ExibirValor label={"Atirar"} valor={Math.floor(((2 * precisao) + percepcao) / 3)} havePenali={true} />
+          <ExibirValor label={"Dirigir"} valor={Math.floor((precisao + destreza) / 2 + sabedoria)} havePenali={true} />
+          <ExibirValor label={"Equilibrar"} valor={Math.floor((precisao + destreza + vigor + poder + sorte) / 5 - tamanho)} />
+          <ExibirValor label={"Ilusão"} valor={Math.floor((precisao + destreza + poder) / 3 + aparencia)} havePenali={true} />
+          <ExibirValor label={"Mirar"} valor={Math.floor(((3 * precisao) + destreza + percepcao) / 5 + sabedoria)} />
+        </div>
+
+        <br />
+
+        <div>
+          <p>Psicologia</p>
+          <ExibirValor label={"Acalmar"} valor={Math.floor(((3 * psicologia) + intelecto) / 4 + sabedoria)} />
+          <ExibirValor label={"Charme"} valor={Math.floor((psicologia + labia) / 2 + 2 * aparencia)} />
+          <ExibirValor label={"Intimidar"} valor={Math.floor((psicologia + poder + vigor) / 3 + tamanho)} />
+          <ExibirValor label={"Intuição"} valor={Math.floor((psicologia + sorte + intelecto) / 3 + sabedoria)} />
+          <ExibirValor label={"Mentir"} valor={Math.floor((psicologia + labia) / 3 + sabedoria + aparencia)} />
+          <ExibirValor label={"Persuadir"} valor={Math.floor((psicologia + labia) / 2 + aparencia)} />
+        </div>
+
+        <br />
+
+        <div>
+          <p>Técnica</p>
+          <ExibirValor label={"Buscar"} valor={Math.floor((2 * tecnica + intelecto) / 3)} havePenali={true} />
+          <ExibirValor label={"Hacker"} valor={Math.floor((4 * tecnica + intelecto + destreza) / 8 + sabedoria / 2)} havePenali={true} />
+          <ExibirValor label={"Montar"} valor={Math.floor((3 * tecnica + precisao) / 4 + sabedoria)} havePenali={true} />
+        </div>
+      </section>
+    </>
+  );
 }

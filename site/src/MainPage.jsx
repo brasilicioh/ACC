@@ -68,8 +68,8 @@ function CriarCharacter() {
 
   const handleConcluir = () => {
     if (classe === "") {
-        alert("Escolha uma classe!");
-        return;
+      alert("Escolha uma classe!");
+      return;
     } else if (classe != "Sem Classe" && especialidades.length === 0) {
       alert("Escolha uma especialidade");
     }
@@ -77,11 +77,11 @@ function CriarCharacter() {
       alert("Escolha uma habilidade!");
       return;
     }
-    if (Object.values(atributos).some(val => val === "")) {
+    if (Object.values(atributos).some((val) => val === "")) {
       alert("Preencha todos atributos!");
       return;
     }
-    if (Object.values(pericias).some(val => val === "")) {
+    if (Object.values(pericias).some((val) => val === "")) {
       alert("Preencha todas perícias!");
       return;
     }
@@ -89,8 +89,7 @@ function CriarCharacter() {
   };
 
   const definirSorte = () => {
-    const numeroAleatorio = (Math.floor(Math.random() * 4) + 1) + 
-      (Math.floor(Math.random() * 4) + 1) + (Math.floor(Math.random() * 4) + 1) + 2;
+    const numeroAleatorio = (Math.floor(Math.random() * 4) + 1) + (Math.floor(Math.random() * 4) + 1) + (Math.floor(Math.random() * 4) + 1) + 2;
     setPericias((prev) => ({ ...prev, sorte: numeroAleatorio }));
   };
 
@@ -100,7 +99,7 @@ function CriarCharacter() {
         <>
           <h1>Faça o Personagem</h1>
           <hr />
-          <BasicInformation 
+          <BasicInformation
             info={info}
             setInfo={setInfo}
             settarValores={settarValores}
@@ -160,7 +159,7 @@ function MainChoice({ onEscolher }) {
       <div className="container">
         <h1 className="text-center">Escolha a sua opção</h1>
         <div className="row justify-content-center">
-          <button type="button"  className="btn btn-info btn-lg btn-block firtsButton" onClick={() => onEscolher("character")}>Criar Personagem</button>
+          <button type="button" className="btn btn-info btn-lg btn-block firtsButton" onClick={() => onEscolher("character")}>Criar Personagem</button>
         </div>
         <div className="row justify-content-center">
           <a className="btn btn-info btn-lg btn-block firtsButton" href="https://brasilicioh.github.io/simuladorDados/" role="button">Simulador Dados</a>
