@@ -1,12 +1,6 @@
 import { useState } from "react";
 import Ficha from "./LayoutFicha.jsx";
-import {
-  BasicInformation,
-  Habilidade,
-  Classe,
-  Atributos,
-  Pericias
-} from "./Entradas.jsx";
+import { BasicInformation, Habilidade, Classe, Atributos, Pericias } from "./Entradas.jsx";
 
 function CriarCharacter() {
   const [info, setInfo] = useState({
@@ -59,11 +53,17 @@ function CriarCharacter() {
   const [concluido, setConcluido] = useState(false);
 
   const settarValores = (element, setter) => {
-    const { name, value, type } = element.target;
-    setter((prev) => ({
-      ...prev,
-      [name]: value === "" ? "" : type === "number" ? Number(value) : value,
-    }));
+    const { name, value, type, min } = element.target;
+    let finalValue = value;
+
+    if (type === "number" && value !== "") {
+      finalValue = Number(value) - (Number(value) % 1);
+      if (min !== undefined && finalValue < Number(min)) {
+        finalValue = Number(min);
+      }
+    }
+
+    setter((prev) => ({ ...prev, [name]: finalValue }));
   };
 
   const handleConcluir = () => {

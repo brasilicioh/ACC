@@ -13,6 +13,16 @@ function Vantagem() {
   );
 }
 
+function Penalidade({ label }) {
+  const [penal, setPenal] = useState("°");
+
+  return (
+    <span style={{ cursor: "pointer", margin: 0 }} onClick={() => setPenal(penal == "°" ? "" : "°")}>
+      {label}{penal}
+    </span>
+  )
+}
+
 function ExibirValor({ label, valor, buff, havePenali = false }) {
   let buffOut = "";
   if (buff > 0) {
@@ -32,7 +42,7 @@ function ExibirValor({ label, valor, buff, havePenali = false }) {
 
   return (
       <p>
-        {label}{havePenali ? "°" : ""}: {valor}{buffOut} <Vantagem />
+        {havePenali ? <Penalidade label={label} /> : label}: {valor}{buffOut} <Vantagem />
       </p>
   );
 }

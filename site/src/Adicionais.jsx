@@ -22,7 +22,13 @@ function addAdicional(isClasseHabili, nome, adicionais, setAdicionais, setMensag
       break;
     case "Habilidade":
       condicao = !adicionais.includes(nome);
-      adicionarAdicional = (prev) => [...prev, nome];
+      adicionarAdicional = (prev) => (
+        nome === "Sem Habilidade"
+          ? ["Sem Habilidade"]
+          : prev[0] === "Sem Habilidade"
+          ? [nome]
+          : [...prev, nome]
+      );
       removerAdicional = (prev) => prev.filter((h) => h !== nome);
       mensagemAdd = "✓ Habilidade adicionada! Clique novamente para remover.";
       mensagemRemove = "☓ Habilidade removida! Clique novamente para adicionar.";
@@ -38,36 +44,38 @@ function addAdicional(isClasseHabili, nome, adicionais, setAdicionais, setMensag
   }
 }
 
-export function MostrarAdicional({ isClasseHabili, adicionais, setAdicionais, classeEspeci, setEspeci }) {
+export function MostrarAdicional({ strName, adicionais, setAdicionais, classeEspeci, setEspeci }) {
   const [mensagem, setMensagem] = useState({ name: "", message: "" });
 
-  let caminhoJson, nameAdd, funcaoSet;
-
-  switch (isClasseHabili) {
-    case "Classe":
-      caminhoJson = buffs["classes"];
-      nameAdd = "Classe";
-      funcaoSet = setEspeci;
-      break;
-    case "Especialidade":
-      caminhoJson = buffs["especialidades"][classeEspeci];
-      nameAdd = "Especialidade";
-      funcaoSet = null;
-      break;
-    case "Habilidade":
-      caminhoJson = buffs["habilidades"];
-      nameAdd = "Habilidade";
-      funcaoSet = null;
-      break;
+  const config = {
+    Classe: {
+      caminhoJson: buffs["classes"],
+      nameAdd: "Classe",
+      funcaoSet: setEspeci,
+    },
+    Especialidade: {
+      caminhoJson: buffs["especialidades"][classeEspeci],
+      nameAdd: "Especialidade",
+      funcaoSet: null,
+    },
+    Habilidade: {
+      caminhoJson: buffs["habilidades"],
+      nameAdd: "Habilidade",
+      funcaoSet: null,
+    }
   }
 
   return (
     <>
-      {Object.entries(caminhoJson).map(([key, value]) => (
+      {Object.entries(config[strName]["caminhoJson"]).map(([key, value]) => (
         <div key={key}>
           <span className="addHabilidade"
             onClick={() =>
-              addAdicional(nameAdd, key, adicionais, setAdicionais, setMensagem, funcaoSet)
+              addAdicional(
+                config[strName]["nameAdd"], key, 
+                adicionais, setAdicionais, setMensagem, 
+                config[strName]["funcaoSet"]
+              )
             }
           >
             &#x0229E;
