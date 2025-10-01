@@ -58,7 +58,7 @@ function CriarCharacter() {
 
     if (type === "number" && value !== "") {
       finalValue = Number(value) - (Number(value) % 1);
-      if (min !== undefined && finalValue < Number(min)) {
+      if (min != "" && finalValue < Number(min)) {
         finalValue = Number(min);
       }
     }

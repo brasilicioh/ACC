@@ -21,6 +21,11 @@
 }
 
 #habilidade, #classes, #especialidades {
+    .cardAdd {
+        display: flex;
+        flex-flow: row wrap;
+    }
+
     .popUp {
         position: fixed;
         top: 0;

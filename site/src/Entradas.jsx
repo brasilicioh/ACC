@@ -35,7 +35,7 @@ function EntradaInputs({ name, label, value, setValue, valueBuff, setValueBuff, 
           <input
             className="form-control" name={name} value={valueBuff}
             onChange={(e) => settarValores(e, setValueBuff)}
-            type="number" step="1"
+            type="number" min="" step="1"
           />
         )}
       </div>
@@ -114,7 +114,7 @@ export function Classe({ classe, setClasse, especialidades, setEspecialidade }) 
             </div>
           </div>
         ) : classe == "" ? null : (
-          <div className="row g-0">
+          <div className="row g-0 cardAdd">
             <div className="col" key={classe}>
               <small className="d-block p-2 border rounded h-100">
                 <h4>{classe}</h4>
@@ -148,7 +148,7 @@ export function Classe({ classe, setClasse, especialidades, setEspecialidade }) 
               </div>
             </div>
           ) : (
-            <div className="row row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-6 g-0">
+            <div className="row g-0 mt-2 cardAdd">
               {especialidades.map((key) => (
                 <div className="col" key={key}>
                   <small className="d-block p-2 border rounded h-100">
@@ -193,7 +193,7 @@ export function Habilidade({ habilidades, setHabilidade }) {
           </div>
         </div>
       ) : (
-        <div className="row row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-6 g-0">
+        <div className="row g-0 mt-2 cardAdd">
           {habilidades.map((key) => (
             <div className="col" key={key}>
               <small className="d-block p-2 border rounded h-100">
@@ -241,7 +241,7 @@ export function Atributos({ atributos, setAtributos, buffs, setBuffs, settarValo
           settarValores={settarValores}
         />
         {atributos.tamanho.toString() !== "" && (
-          <p>{`1d${4 + 2 * (Number(atributos.tamanho) + Number(buffs.tamanho))}`}</p>
+          <p>{`1d${Math.max(4, (4 + 2 * (Number(atributos.tamanho) + Number(buffs.tamanho))))}`}</p>
         )}
       </div>
     </div>
@@ -350,6 +350,7 @@ export function Pericias({ pericias, setPericias, buffs, setBuffs, settarValores
           setValue={definirSorte}
           valueBuff={buffs.sorte}
           setValueBuff={setBuffs}
+          settarValores={settarValores}
         />
       </div>
     </div>

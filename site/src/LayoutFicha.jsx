@@ -35,9 +35,9 @@ function ExibirValor({ label, valor, buff, havePenali = false }) {
     case "Aparência":
     case "Sabedoria":
     case "Total":
-      return (<p>{label}: {valor}{buffOut}</p>);
+      return (<p>{label}: {Math.max(0, valor)}{buffOut}</p>);
     case "Tamanho":
-      return (<p>{label}: {valor}{buffOut} -- 1d{4 + 2 * (valor + buff)}</p>);
+      return (<p>{label}: {Math.max(0, valor)}{buffOut} -- 1d{Math.max(4, (4 + 2 * (valor + buff)))}</p>);
   }
 
   return (
