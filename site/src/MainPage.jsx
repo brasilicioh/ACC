@@ -97,26 +97,25 @@ function CriarCharacter() {
     <>
       {!concluido ? (
         <>
-          <h1>Faça o Personagem</h1>
+        <div className="sticky-top bg-white mx-auto">
+          <h1 className="text-center">Faça o Personagem</h1>
           <hr />
+        </div>
           <BasicInformation
             info={info}
             setInfo={setInfo}
             settarValores={settarValores}
           />
-          <hr />
           <Classe
             classe={classe}
             setClasse={setClasse}
             especialidades={especialidades}
             setEspecialidade={setEspecialidade}
           />
-          <hr />
           <Habilidade
             habilidades={habilidades}
             setHabilidade={setHabilidade}
           />
-          <hr />
           <Atributos
             atributos={atributos}
             setAtributos={setAtributos}
@@ -124,7 +123,6 @@ function CriarCharacter() {
             setBuffs={setBuffs}
             settarValores={settarValores}
           />
-          <hr />
           <Pericias
             pericias={pericias}
             setPericias={setPericias}
@@ -133,9 +131,9 @@ function CriarCharacter() {
             settarValores={settarValores}
             definirSorte={definirSorte}
           />
-          <br />
-          <br />
-          <button onClick={() => handleConcluir()}>Concluir</button>
+          <div className="text-center">
+            <button className="btn btn-dark w-75 my-5" onClick={() => handleConcluir()}>Concluir</button>
+          </div>
         </>
       ) : (
         <>

@@ -11,18 +11,21 @@ function useOverflowBlock(isActive) {
 
 function EntradaInputs({ name, label, value, setValue, valueBuff, setValueBuff, settarValores, type = "number" }) {
   return (
-    <div className="col-12 col-md-3 mb-3">
-      <label htmlFor={name} className="form-label fw-bold">{label}</label>
-      <div className="input-group input-group-sm">
+    <div className="col-5 col-md-3 mb-3">
+      <div className="input-group">
+        <label className="input-group-text m-0 fw-bold">{label}</label>
         {name == "historia" ? (
           <textarea
             className="form-control" name={name}
             onChange={(e) => settarValores(e, setValue)}
-            value={value} rows={3}
+            value={value} rows={1}
           />
         ) : name == "sorte" ? (
           <>
-            <p>{value}</p><button onClick={setValue}>3d4+2</button>
+            <button className="btn btn-secondary" onClick={setValue}>3d4+2</button>
+            {value == "" ? null : (
+              <span className="input-group-text m-0">{value}</span>
+            )}
           </>
         ) : (
           <input
@@ -45,12 +48,12 @@ function EntradaInputs({ name, label, value, setValue, valueBuff, setValueBuff, 
 
 export function BasicInformation({ info, setInfo, settarValores }) {
   return (
-    <div className="card p-2 shadow-sm">
-      <h4 className="mb-3">Informações</h4>
+    <div className="card p-2 shadow my-5">
+      <h3 className="mb-3 text-center">Informações Básicas (opcional)</h3>
       <div className="row justify-content-center">
         <EntradaInputs
           name={"nome"}
-          label={"Nome"}
+          label={"Nome"}  
           value={info.nome}
           setValue={setInfo}
           settarValores={settarValores}
@@ -90,10 +93,10 @@ export function Classe({ classe, setClasse, especialidades, setEspecialidade }) 
   useOverflowBlock(showClasse || showEspecialidade);
 
   return (
-    <>
-      <div id="classes">
-        <h4>Classes</h4>
-        <button onClick={() => setShowClasse(true)}>Escolher Classe</button>
+    <div className="card p-2 shadow my-5">
+      <div className="text-center" id="classes">
+        <h3 className="mb-3 text-center">Classes</h3>
+        <button onClick={() => setShowClasse(true)} className="btn btn-info w-25">Escolher Classe</button>
         {showClasse ? (
           <div className="popUp">
             <div className="container">
@@ -114,9 +117,9 @@ export function Classe({ classe, setClasse, especialidades, setEspecialidade }) 
             </div>
           </div>
         ) : classe == "" ? null : (
-          <div className="row g-0 cardAdd">
-            <div className="col" key={classe}>
-              <small className="d-block p-2 border rounded h-100">
+          <div className="row mt-2 justify-content-center">
+            <div className="col-12" key={classe}>
+              <small className="d-block p-2 border rounded">
                 <h4>{classe}</h4>
                 <p className="quebraLinha">{buffs["classes"][classe]}</p>
               </small>
@@ -125,15 +128,15 @@ export function Classe({ classe, setClasse, especialidades, setEspecialidade }) 
         )}
       </div>
       {classe === "" || classe === "Sem Classe" || showClasse ? null : (
-        <div id="especialidades">
-          <h4>Especialidades</h4>
-          <button onClick={() => setShowEspecialidade(true)}>Escolher Especialidade</button>
+        <div className="text-center" id="especialidades">
+          <h3 className="mb-3 text-center">Especialidades da Classe {classe}</h3>
+          <button onClick={() => setShowEspecialidade(true)} className="btn btn-info w-25">Escolher Especialidades de {classe}</button>
           {showEspecialidade ? (
             <div className="popUp">
               <div className="container">
                 <div className="sticky-top d-flex justify-content-between align-items-center">
                   {especialidades.length > 0 ? (
-                    <h4>Habilidades escolhidas: {especialidades.join(", ")}</h4>
+                    <h4>Especialidades escolhidas: {especialidades.join(", ")}</h4>
                   ) : (
                     <h4>Nenhuma Especialidade Escolhida</h4>
                   )}
@@ -148,9 +151,9 @@ export function Classe({ classe, setClasse, especialidades, setEspecialidade }) 
               </div>
             </div>
           ) : (
-            <div className="row g-0 mt-2 cardAdd">
+            <div className="row g-0 mt-2">
               {especialidades.map((key) => (
-                <div className="col" key={key}>
+                <div className="col-6 col-sm-4 col-md-3 mx-auto" key={key}>
                   <small className="d-block p-2 border rounded h-100">
                     <h4>{key}</h4>
                     <p>{buffs["especialidades"][classe][key]}</p>
@@ -161,7 +164,7 @@ export function Classe({ classe, setClasse, especialidades, setEspecialidade }) 
           )}
         </div>
       )}
-    </>
+    </div>
   );
 }
 
@@ -171,47 +174,49 @@ export function Habilidade({ habilidades, setHabilidade }) {
   useOverflowBlock(showHabilidade);
 
   return (
-    <div id="habilidade">
-      <h4>Habilidades</h4>
-      <button onClick={() => setShowHabilidade(true)}>Escolher Habilidades</button>
-      {showHabilidade ? (
-        <div className="popUp">
-          <div className="container">
-            <div className="sticky-top d-flex justify-content-between align-items-center">
-              {habilidades.length > 0 ? (
-                <h4>Habilidades escolhidas: {habilidades.join(", ")}</h4>
-              ) : (
-                <h4>Nenhuma Habilidade escolhida</h4>
-              )}
-              <span onClick={() => setShowHabilidade(false)} className="close">&times;</span>
+    <div className="card p-2 shadow my-5">
+      <div className="text-center" id="habilidade">
+        <h3 className="mb-3 text-center">Habilidades</h3>
+        <button onClick={() => setShowHabilidade(true)} className="btn btn-info w-25">Escolher Habilidades</button>
+        {showHabilidade ? (
+          <div className="popUp">
+            <div className="container">
+              <div className="sticky-top d-flex justify-content-between align-items-center">
+                {habilidades.length > 0 ? (
+                  <h4>Habilidades escolhidas: {habilidades.join(", ")}</h4>
+                ) : (
+                  <h4>Nenhuma Habilidade escolhida</h4>
+                )}
+                <span onClick={() => setShowHabilidade(false)} className="close">&times;</span>
+              </div>
+              <MostrarAdicional
+                strName={"Habilidade"}
+                adicionais={habilidades}
+                setAdicionais={setHabilidade}
+              />
             </div>
-            <MostrarAdicional
-              strName={"Habilidade"}
-              adicionais={habilidades}
-              setAdicionais={setHabilidade}
-            />
           </div>
-        </div>
-      ) : (
-        <div className="row g-0 mt-2 cardAdd">
-          {habilidades.map((key) => (
-            <div className="col" key={key}>
-              <small className="d-block p-2 border rounded h-100">
-                <h4>{key}</h4>
-                <p>{buffs["habilidades"][key]}</p>
-              </small>
-            </div>
-          ))}
-        </div>
-      )}
+        ) : (
+          <div className="row g-0 mt-2">
+            {habilidades.map((key) => (
+              <div className="col-6 col-sm-4 col-md-3 mx-auto" key={key}>
+                <small className="d-block p-2 border rounded h-100">
+                  <h4>{key}</h4>
+                  <p>{buffs["habilidades"][key]}</p>
+                </small>
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
     </div>
   );
 }
 
 export function Atributos({ atributos, setAtributos, buffs, setBuffs, settarValores }) {
   return (
-    <div className="card p-2 shadow-sm">
-      <h4 className="mb-3">Atributos</h4>
+    <div className="card p-2 shadow my-5">
+      <h3 className="mb-3 text-center">Atributos</h3>
       <div className="row justify-content-center">
         <EntradaInputs
           name="aparencia"
@@ -250,8 +255,8 @@ export function Atributos({ atributos, setAtributos, buffs, setBuffs, settarValo
 
 export function Pericias({ pericias, setPericias, buffs, setBuffs, settarValores, definirSorte }) {
   return (
-    <div className="card p-2 shadow-sm">
-      <h4 className="mb-3">Perícias</h4>
+    <div className="card p-2 shadow my-5">
+      <h3 className="mb-3 text-center">Perícias</h3>
       <div className="row justify-content-center">
         <EntradaInputs
           name="destreza"
