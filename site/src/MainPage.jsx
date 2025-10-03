@@ -97,7 +97,7 @@ function CriarCharacter() {
     <>
       {!concluido ? (
         <>
-        <div className="sticky-top bg-white mx-auto">
+        <div style={{zIndex: 1}} className="sticky-top bg-white mx-auto">
           <h1 className="text-center">Faça o Personagem</h1>
           <hr />
         </div>

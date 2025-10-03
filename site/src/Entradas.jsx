@@ -11,9 +11,9 @@ function useOverflowBlock(isActive) {
 
 function EntradaInputs({ name, label, value, setValue, valueBuff, setValueBuff, settarValores, type = "number" }) {
   return (
-    <div className="col-5 col-md-3 mb-3">
+    <div className="col-11 col-md-3 mb-3">
       <div className="input-group">
-        <label className="input-group-text m-0 fw-bold">{label}</label>
+        <label className="input-group-text m-0 fw-bold col-5 text-wrap">{label}</label>
         {name == "historia" ? (
           <textarea
             className="form-control" name={name}
@@ -96,7 +96,7 @@ export function Classe({ classe, setClasse, especialidades, setEspecialidade }) 
     <div className="card p-2 shadow my-5">
       <div className="text-center" id="classes">
         <h3 className="mb-3 text-center">Classes</h3>
-        <button onClick={() => setShowClasse(true)} className="btn btn-info w-25">Escolher Classe</button>
+        <button onClick={() => setShowClasse(true)} className="btn btn-info w-50">Escolher Classe</button>
         {showClasse ? (
           <div className="popUp">
             <div className="container">
@@ -130,7 +130,7 @@ export function Classe({ classe, setClasse, especialidades, setEspecialidade }) 
       {classe === "" || classe === "Sem Classe" || showClasse ? null : (
         <div className="text-center" id="especialidades">
           <h3 className="mb-3 text-center">Especialidades da Classe {classe}</h3>
-          <button onClick={() => setShowEspecialidade(true)} className="btn btn-info w-25">Escolher Especialidades de {classe}</button>
+          <button onClick={() => setShowEspecialidade(true)} className="btn btn-info w-50">Escolher Especialidades de {classe}</button>
           {showEspecialidade ? (
             <div className="popUp">
               <div className="container">
@@ -177,7 +177,7 @@ export function Habilidade({ habilidades, setHabilidade }) {
     <div className="card p-2 shadow my-5">
       <div className="text-center" id="habilidade">
         <h3 className="mb-3 text-center">Habilidades</h3>
-        <button onClick={() => setShowHabilidade(true)} className="btn btn-info w-25">Escolher Habilidades</button>
+        <button onClick={() => setShowHabilidade(true)} className="btn btn-info w-50">Escolher Habilidades</button>
         {showHabilidade ? (
           <div className="popUp">
             <div className="container">
