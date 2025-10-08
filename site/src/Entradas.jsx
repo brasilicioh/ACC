@@ -9,6 +9,18 @@ function useOverflowBlock(isActive) {
   }, [isActive]);
 }
 
+function useClosePopUp(setter1, setter2 = null) {
+  useEffect(() => {
+    function getKeyDown(event) {
+      if (event.key == "Escape") {
+        setter1(false);
+        setter2 != null ? setter2(false) : null;
+      }
+    }
+    window.addEventListener("keydown", getKeyDown)
+  }, [setter1, setter2]);
+}
+
 function EntradaInputs({ name, label, value, setValue, valueBuff, setValueBuff, settarValores, type = "number" }) {
   return (
     <div className="col-11 col-md-3 mb-3">
@@ -92,6 +104,8 @@ export function Classe({ classe, setClasse, especialidades, setEspecialidade }) 
 
   useOverflowBlock(showClasse || showEspecialidade);
 
+  useClosePopUp(setShowClasse, setShowEspecialidade);
+
   return (
     <div className="card p-2 shadow my-5">
       <div className="text-center adicional">
@@ -174,6 +188,8 @@ export function Habilidade({ habilidades, setHabilidade }) {
   const [showHabilidade, setShowHabilidade] = useState(false);
 
   useOverflowBlock(showHabilidade);
+
+  useClosePopUp(setShowHabilidade);
 
   return (
     <div className="card p-2 shadow my-5">
