@@ -157,10 +157,10 @@ function MainChoice({ onEscolher }) {
       <div className="container">
         <h1 className="text-center">Escolha a sua opção</h1>
         <div className="row justify-content-center">
-          <button type="button" className="btn btn-info btn-lg btn-block firtsButton" onClick={() => onEscolher("character")}>Criar Personagem</button>
+          <button type="button" className="btn btn-info btn-lg btn-block firtsButton col-12 col-md-8 col-lg-6" onClick={() => onEscolher("character")}>Criar Personagem</button>
         </div>
         <div className="row justify-content-center">
-          <a className="btn btn-info btn-lg btn-block firtsButton" href="https://brasilicioh.github.io/simuladorDados/" role="button">Simulador Dados</a>
+          <a className="btn btn-info btn-lg btn-block firtsButton col-12 col-md-8 col-lg-6" href="https://brasilicioh.github.io/simuladorDados/" role="button">Simulador Dados</a>
         </div>
       </div>
     </>

@@ -68,7 +68,7 @@ export function BasicInformation({ info, setInfo, settarValores }) {
         />
         <EntradaInputs
           name={"nascimento"}
-          label={"Data de Nascimento"}
+          label={"Quando Nasceu"}
           value={info.nascimento}
           setValue={setInfo}
           settarValores={settarValores}
@@ -94,11 +94,12 @@ export function Classe({ classe, setClasse, especialidades, setEspecialidade }) 
 
   return (
     <div className="card p-2 shadow my-5">
-      <div className="text-center" id="classes">
+      <div className="text-center adicional">
         <h3 className="mb-3 text-center">Classes</h3>
         <button onClick={() => setShowClasse(true)} className="btn btn-info w-50">Escolher Classe</button>
         {showClasse ? (
           <div className="popUp">
+            <span onClick={() => setShowClasse(false)} className="closePopUp" ></span>
             <div className="container">
               <div className="sticky-top d-flex justify-content-between align-items-center">
                 {classe != "" ? (
@@ -128,11 +129,12 @@ export function Classe({ classe, setClasse, especialidades, setEspecialidade }) 
         )}
       </div>
       {classe === "" || classe === "Sem Classe" || showClasse ? null : (
-        <div className="text-center" id="especialidades">
+        <div className="text-center adicional">
           <h3 className="mb-3 text-center">Especialidades da Classe {classe}</h3>
           <button onClick={() => setShowEspecialidade(true)} className="btn btn-info w-50">Escolher Especialidades de {classe}</button>
           {showEspecialidade ? (
             <div className="popUp">
+            <span onClick={() => setShowEspecialidade(false)} className="closePopUp" ></span>
               <div className="container">
                 <div className="sticky-top d-flex justify-content-between align-items-center">
                   {especialidades.length > 0 ? (
@@ -175,11 +177,12 @@ export function Habilidade({ habilidades, setHabilidade }) {
 
   return (
     <div className="card p-2 shadow my-5">
-      <div className="text-center" id="habilidade">
+      <div className="text-center adicional">
         <h3 className="mb-3 text-center">Habilidades</h3>
         <button onClick={() => setShowHabilidade(true)} className="btn btn-info w-50">Escolher Habilidades</button>
         {showHabilidade ? (
           <div className="popUp">
+            <span onClick={() => setShowHabilidade(false)} className="closePopUp" ></span>
             <div className="container">
               <div className="sticky-top d-flex justify-content-between align-items-center">
                 {habilidades.length > 0 ? (
