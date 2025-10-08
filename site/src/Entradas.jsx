@@ -25,7 +25,7 @@ function EntradaInputs({ name, label, value, setValue, valueBuff, setValueBuff, 
   return (
     <div className="col-11 col-md-3 mb-3">
       <div className="input-group">
-        <label className="input-group-text m-0 fw-bold col-5 text-wrap">{label}</label>
+        <label className="input-group-text m-0 fw-bold col text-wrap">{label}</label>
         {name == "historia" ? (
           <textarea
             className="form-control" name={name}
@@ -80,7 +80,7 @@ export function BasicInformation({ info, setInfo, settarValores }) {
         />
         <EntradaInputs
           name={"nascimento"}
-          label={"Quando Nasceu"}
+          label={"Nascimento"}
           value={info.nascimento}
           setValue={setInfo}
           settarValores={settarValores}
