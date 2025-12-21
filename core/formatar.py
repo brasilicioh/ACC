@@ -22,7 +22,7 @@ with open("especialidades.txt", "r", encoding="utf-8") as file:
         classeEspeci = especialidadeTotal[0]
         especialidadeTotal.pop(0)
 
-        dictEspecialidade = {}
+        dictEspecialidade = {"Sem Especialidade": ""}
 
         for especialidade in especialidadeTotal:
             nome, corpo = especialidade.split(": ", 1)

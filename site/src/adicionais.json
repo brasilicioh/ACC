@@ -9,6 +9,7 @@
   },
   "especialidades": {
     "Atleta": {
+      "Sem Especialidade": "",
       "Atirador": "Você sabe atirar com precisão. +1 ou vantagem em Mirar. +2 de dano com armas de disparo. Sem penalidade em Atirar.",
       "Atletismo": "+1 ou vantagem em Vigor (máx: 16). +2 PV e +2 SM.",
       "Boxeador": "+1 ou vantagem em Lutar. +2 no dado de dano de golpes físicos (ex: 1d4 vira 1d6).",
@@ -19,6 +20,7 @@
       "Vencedor": "Escolha mais duas atividades físicas ou esportes para se tornar especialista."
     },
     "Famoso": {
+      "Sem Especialidade": "",
       "Ator": "+5 SM. +2 em Lábia, Persuasão e Mentir.",
       "Dublê": "+1 em Força e Vigor (máx: 14). +2 em Acrobacia ou Equilíbrio. +6 PV.",
       "Escritor": "Você publicou um livro autoral (esse livro pode passar novas ideias e interpretações à personagens que o leram). +2 e vantagem em História, Artes e Ilusão.",
@@ -28,6 +30,7 @@
       "Músico": "+4 em Persuasão. Você pode usar a Voz: pode animar e melhorar o estado emocional das pessoas ao seu redor com um teste de Persuasão."
     },
     "Inteligente": {
+      "Sem Especialidade": "",
       "Certeiro": "+2 em Precisão (máx: 16). Vantagem em Mirar. Sem penalidade em Atirar.",
       "Conhecedor": "+2 em três das seguintes perícias: Atualidades, Bibliotecas, História, Artes, Natureza, Intuição ou Buscar.",
       "Hacker": "+2 e vantagem em Técnica (máx: 16). Sem penalidade em Buscar, Hacker e Montar. +1 em Buscar e +3 em Hacker. Você sabe hackear muito bem.",
@@ -37,6 +40,7 @@
       "Sabichão": "Escolha mais dois assuntos (gerais ou específicos) para ser especialista."
     },
     "Lutador": {
+      "Sem Especialidade": "",
       "Armado": "Seus ataques físicos com armas causam +4 de dano.",
       "Gigante": "+1 em Tamanho (máx: 5). -1 em Aparência (mín: 0). +2 de espaço na bolsa. Desvantagem em Equilíbrio.",
       "Habilidoso": "Pode escolher mais um estilo de luta ou arte marcial.",
@@ -46,6 +50,7 @@
       "Reação": "Escolha entre: +1 e vantagem em Esquivar ou +3 e vantagem em Reflexos."
     },
     "Simples": {
+      "Sem Especialidade": "",
       "Alto": "+6 de espaço na bolsa.",
       "Anormal": "+1 ponto para distribuir entre os atributos (máx: 4).",
       "Atualizado": "Pode não ter penalidade em ações tecnológicas. +1 em Técnica. +2 em Buscar e Atualidades.",
