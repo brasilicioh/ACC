@@ -53,6 +53,9 @@ function EntradaInputs({ name, label, value, setValue, valueBuff, setValueBuff, 
             type="number" min="" step="1"
           />
         )}
+        {name === "tamanho" && value.toString() !== "" && (
+          <p className="input-group-text m-0">{`1d${Math.max(4, (4 + 2 * (Number(value) + Number(valueBuff))))}`}</p>
+        )}
       </div>
     </div>
   );
@@ -264,9 +267,6 @@ export function Atributos({ atributos, setAtributos, buffs, setBuffs, settarValo
           setValueBuff={setBuffs}
           settarValores={settarValores}
         />
-        {atributos.tamanho.toString() !== "" && (
-          <p>{`1d${Math.max(4, (4 + 2 * (Number(atributos.tamanho) + Number(buffs.tamanho))))}`}</p>
-        )}
       </div>
     </div>
   );
