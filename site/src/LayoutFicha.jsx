@@ -163,7 +163,7 @@ export default function Ficha({ info, classe, especialidades, habilidades, atrib
           <ExibirValor label={"Escalar"} valor={Math.floor((destreza + forca) / 2 - tamanho)} havePenali={true} />
           <ExibirValor label={"Esquivar"} valor={Math.floor((destreza + percepcao) / 2)} />
           <ExibirValor label={"Furtividade"} valor={Math.floor((destreza + intelecto) / 2)} />
-          <ExibirValor label={"Reflexos"} valor={Math.floor((destreza + intelecto + percepcao) / 3 + sabedoria)} havePenali={true} />
+          <ExibirValor label={"Reflexos"} valor={Math.floor((destreza + intelecto + percepcao) / 3 + sabedoria)} />
         </div>
 
         <br />
