@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ExibirHabilidade } from "./Adicionais.jsx";
+import { ExibirHabilidade,ExibirClasse, ExibirEspecialidade } from "./Adicionais.jsx";
 
 function Vantagem() {
   const [vant, setVant] = useState(0);
@@ -24,6 +24,8 @@ function Penalidade({ label }) {
 }
 
 function ExibirValor({ label, valor, buff, havePenali = false }) {
+  valor = Math.max(0, valor);
+
   let buffOut = "";
   if (buff > 0) {
     buffOut = "+" + buff;
@@ -47,7 +49,7 @@ function ExibirValor({ label, valor, buff, havePenali = false }) {
   );
 }
 
-export default function Ficha({ info, habilidades, atributos, pericias, buffs }) {
+export default function Ficha({ info, classe, especialidades, habilidades, atributos, pericias, buffs }) {
   let somaPericias = 0;
   let somaBuffs = 0;
   for (const chave in pericias) {
@@ -91,12 +93,14 @@ export default function Ficha({ info, habilidades, atributos, pericias, buffs })
       <br />
 
       <section>
-        <h2>Habilidades:</h2>
-        <ExibirHabilidade habilidades={habilidades} />
+        <h2>Classe e Especialidade:</h2>
+        <ExibirClasse classe={classe} />
+        <ExibirEspecialidade classe={classe} especialidades={especialidades} />
       </section>
 
       <section>
-        <h2>Classe e Especialidade: tem que fazer</h2>
+        <h2>Habilidades:</h2>
+        <ExibirHabilidade habilidades={habilidades} />
       </section>
 
       <br />

@@ -15,7 +15,13 @@ function addAdicional(isClasseHabili, nome, adicionais, setAdicionais, setMensag
       break;
     case "Especialidade":
       condicao = !adicionais.includes(nome);
-      adicionarAdicional = (prev) => [...prev, nome];
+      adicionarAdicional = (prev) => (
+        nome === "Sem Especialidade"
+          ? ["Sem Especialidade"]
+          : prev[0] === "Sem Especialidade"
+          ? [nome]
+          : [...prev, nome]
+      );
       removerAdicional = (prev) => prev.filter((h) => h !== nome);
       mensagemAdd = "✓ Especialidade adicionada! Clique novamente para remover.";
       mensagemRemove = "☓ Especialidade removida! Clique novamente para adicionar.";
@@ -91,10 +97,28 @@ export function MostrarAdicional({ strName, adicionais, setAdicionais, classeEsp
 
 export function ExibirHabilidade({ habilidades }) {
   return (
-    <>
+    <ul>
       {habilidades.map((key) => (
-        <p>{key}: {buffs["habilidades"][key]}</p>
+        <li><p><strong>{key}:</strong>{buffs["habilidades"][key]}</p></li>
       ))}
-    </>
+    </ul>
   );
+}
+
+export function ExibirClasse({ classe }) {
+  return (
+    <ul>
+      <p className="quebraLinha"><strong>{classe}:</strong>{buffs["classes"][classe]}</p>
+    </ul>
+  )
+}
+
+export function ExibirEspecialidade({ classe, especialidades }) {
+  return (
+    <ul>
+      {especialidades.map((key) => (
+        <li><p><strong>{key}:</strong>{buffs["especialidades"][classe][key]}</p></li>
+      ))}
+    </ul>
+  )
 }

@@ -140,6 +140,8 @@ function CriarCharacter() {
           <h1>Layout da ficha</h1>
           <Ficha
             info={info}
+            classe={classe}
+            especialidades={especialidades}
             habilidades={habilidades}
             atributos={atributos}
             pericias={pericias}
