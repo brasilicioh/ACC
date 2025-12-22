@@ -10,7 +10,7 @@ with open("classes.txt", "r", encoding="utf-8") as file:
     
     for classe in classesList:
         nome = classe.split("\n")[0]
-        descricaoClasse = classe.removeprefix(f"{nome}\n")
+        descricaoClasse = classe.removeprefix(f"{nome}")
         classes[nome] = descricaoClasse
 
 with open("especialidades.txt", "r", encoding="utf-8") as file:

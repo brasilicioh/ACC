@@ -99,7 +99,7 @@ export function ExibirHabilidade({ habilidades }) {
   return (
     <ul>
       {habilidades.map((key) => (
-        <li><p><strong>{key}:</strong>{buffs["habilidades"][key]}</p></li>
+        <li><p><strong>{key}: </strong>{buffs["habilidades"][key]}</p></li>
       ))}
     </ul>
   );
@@ -108,7 +108,7 @@ export function ExibirHabilidade({ habilidades }) {
 export function ExibirClasse({ classe }) {
   return (
     <ul>
-      <p className="quebraLinha"><strong>{classe}:</strong>{buffs["classes"][classe]}</p>
+      <p className="quebraLinha"><strong>{classe}: </strong>{buffs["classes"][classe]}</p>
     </ul>
   )
 }
@@ -117,7 +117,7 @@ export function ExibirEspecialidade({ classe, especialidades }) {
   return (
     <ul>
       {especialidades.map((key) => (
-        <li><p><strong>{key}:</strong>{buffs["especialidades"][classe][key]}</p></li>
+        <li><p><strong>{key}: </strong>{buffs["especialidades"][classe][key]}</p></li>
       ))}
     </ul>
   )
