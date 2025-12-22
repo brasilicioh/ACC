@@ -1,6 +1,17 @@
 import { useState, useRef } from "react";
 import { ExibirHabilidade,ExibirClasse, ExibirEspecialidade } from "./Adicionais.jsx";
 
+function normalize(obj = {}, keys) {
+  const out = {};
+  for (const k of keys) {
+    const raw = obj?.[k];
+    if (raw === "" || raw == null) { out[k] = 0; continue; }
+    const n = Number(raw);
+    out[k] = Number.isFinite(n) ? Math.trunc(n) : 0;
+  }
+  return out;
+}
+
 function organizarFicha(text) {
   text = text
     .replace(/\r\n/g, "\n")
@@ -165,27 +176,35 @@ function ExibirValor({ label, valor, buff, havePenali = false }) {
 export default function Ficha({ info, classe, especialidades, habilidades, atributos, pericias, buffs }) {
   const fichaRef = useRef(null);
 
+  const periciaKeys = ['destreza','forca','intelecto','labia','percepcao','poder','precisao','psicologia','tecnica','vigor','sorte'];
+  const atributoKeys = ['aparencia','sabedoria','tamanho'];
+  const buffKeys = [...periciaKeys, ...atributoKeys];
+
+  const periciasNum = normalize(pericias, periciaKeys);
+  const atributosNum = normalize(atributos, atributoKeys);
+  const buffsNum = normalize(buffs, buffKeys);
+
   let somaPericias = 0;
   let somaBuffs = 0;
-  for (const chave in pericias) {
-    somaPericias += pericias[chave];
-    somaBuffs += buffs[chave];
+  for (const k of periciaKeys) {
+    somaPericias += periciasNum[k] || 0;
+    somaBuffs += buffsNum[k] || 0;
   }
 
-  const aparencia = atributos.aparencia + buffs.aparencia;
-  const sabedoria = atributos.sabedoria + buffs.sabedoria;
-  const tamanho = atributos.tamanho + buffs.tamanho;
-  const destreza = pericias.destreza + buffs.destreza;
-  const forca = pericias.forca + buffs.forca;
-  const intelecto = pericias.intelecto + buffs.intelecto;
-  const labia = pericias.labia + buffs.labia;
-  const percepcao = pericias.percepcao + buffs.percepcao;
-  const poder = pericias.poder + buffs.poder;
-  const precisao = pericias.precisao + buffs.precisao;
-  const psicologia = pericias.psicologia + buffs.psicologia;
-  const tecnica = pericias.tecnica + buffs.tecnica;
-  const vigor = pericias.vigor + buffs.vigor;
-  const sorte = pericias.sorte + buffs.sorte;
+  const aparencia = atributosNum.aparencia + (buffsNum.aparencia || 0);
+  const sabedoria = atributosNum.sabedoria + (buffsNum.sabedoria || 0);
+  const tamanho = atributosNum.tamanho + (buffsNum.tamanho || 0);
+  const destreza = periciasNum.destreza + (buffsNum.destreza || 0);
+  const forca = periciasNum.forca + (buffsNum.forca || 0);
+  const intelecto = periciasNum.intelecto + (buffsNum.intelecto || 0);
+  const labia = periciasNum.labia + (buffsNum.labia || 0);
+  const percepcao = periciasNum.percepcao + (buffsNum.percepcao || 0);
+  const poder = periciasNum.poder + (buffsNum.poder || 0);
+  const precisao = periciasNum.precisao + (buffsNum.precisao || 0);
+  const psicologia = periciasNum.psicologia + (buffsNum.psicologia || 0);
+  const tecnica = periciasNum.tecnica + (buffsNum.tecnica || 0);
+  const vigor = periciasNum.vigor + (buffsNum.vigor || 0);
+  const sorte = periciasNum.sorte + (buffsNum.sorte || 0);
 
   return (
     <>
@@ -194,17 +213,6 @@ export default function Ficha({ info, classe, especialidades, habilidades, atrib
         {info.idade != "" ? <p>Idade: {info.idade}</p> : null}
         {info.nascimento != "" ? <p>Nascimento: {info.nascimento}</p> : null}
         {info.historia != "" ? <p>História: {info.historia}</p> : null}
-
-        <br />
-
-        <section>
-          <h2>ATRIBUTOS</h2>
-          <div>
-            <ExibirValor label={"Aparência"} valor={atributos.aparencia} buff={buffs.aparencia} />
-            <ExibirValor label={"Sabedoria"} valor={atributos.sabedoria} buff={buffs.sabedoria} />
-            <ExibirValor label={"Tamanho"} valor={atributos.tamanho} buff={buffs.tamanho} />
-          </div>
-        </section>
 
         <br />
 
@@ -248,19 +256,30 @@ export default function Ficha({ info, classe, especialidades, habilidades, atrib
         <br />
 
         <section>
+          <h2>ATRIBUTOS</h2>
+          <div>
+            <ExibirValor label={"Aparência"} valor={atributosNum.aparencia} buff={buffsNum.aparencia} />
+            <ExibirValor label={"Sabedoria"} valor={atributosNum.sabedoria} buff={buffsNum.sabedoria} />
+            <ExibirValor label={"Tamanho"} valor={atributosNum.tamanho} buff={buffsNum.tamanho} />
+          </div>
+        </section>
+
+        <br />
+
+        <section>
           <h2>PERÍCIAS</h2>
           <div>
-            <ExibirValor label={"Destreza"} valor={pericias.destreza} buff={buffs.destreza} />
-            <ExibirValor label={"Força"} valor={pericias.forca} buff={buffs.forca} />
-            <ExibirValor label={"Intelecto"} valor={pericias.intelecto} buff={buffs.intelecto} />
-            <ExibirValor label={"Lábia"} valor={pericias.labia} buff={buffs.labia} />
-            <ExibirValor label={"Percepção"} valor={pericias.percepcao} buff={buffs.percepcao} />
-            <ExibirValor label={"Poder"} valor={pericias.poder} buff={buffs.poder} />
-            <ExibirValor label={"Precisão"} valor={pericias.precisao} buff={buffs.precisao} />
-            <ExibirValor label={"Psicologia"} valor={pericias.psicologia} buff={buffs.psicologia} />
-            <ExibirValor label={"Técnica"} valor={pericias.tecnica} buff={buffs.tecnica} />
-            <ExibirValor label={"Vigor"} valor={pericias.vigor} buff={buffs.vigor} />
-            <ExibirValor label={"Sorte"} valor={pericias.sorte} buff={buffs.sorte} />
+            <ExibirValor label={"Destreza"} valor={periciasNum.destreza} buff={buffsNum.destreza} />
+            <ExibirValor label={"Força"} valor={periciasNum.forca} buff={buffsNum.forca} />
+            <ExibirValor label={"Intelecto"} valor={periciasNum.intelecto} buff={buffsNum.intelecto} />
+            <ExibirValor label={"Lábia"} valor={periciasNum.labia} buff={buffsNum.labia} />
+            <ExibirValor label={"Percepção"} valor={periciasNum.percepcao} buff={buffsNum.percepcao} />
+            <ExibirValor label={"Poder"} valor={periciasNum.poder} buff={buffsNum.poder} />
+            <ExibirValor label={"Precisão"} valor={periciasNum.precisao} buff={buffsNum.precisao} />
+            <ExibirValor label={"Psicologia"} valor={periciasNum.psicologia} buff={buffsNum.psicologia} />
+            <ExibirValor label={"Técnica"} valor={periciasNum.tecnica} buff={buffsNum.tecnica} />
+            <ExibirValor label={"Vigor"} valor={periciasNum.vigor} buff={buffsNum.vigor} />
+            <ExibirValor label={"Sorte"} valor={periciasNum.sorte} buff={buffsNum.sorte} />
             <ExibirValor label={"Total"} valor={somaPericias} buff={somaBuffs} />
           </div>
         </section>

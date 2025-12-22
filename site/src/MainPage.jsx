@@ -71,7 +71,7 @@ function CriarCharacter() {
       alert("Escolha uma classe!");
       return;
     } else if (classe != "Sem Classe" && especialidades.length === 0) {
-      alert("Escolha uma especialidade");
+      alert("Escolha uma especialidade.");
     }
     if (habilidades.length == 0) {
       alert("Escolha uma habilidade!");
@@ -84,6 +84,18 @@ function CriarCharacter() {
     if (Object.values(pericias).some((val) => val === "")) {
       alert("Preencha todas perícias!");
       return;
+    }
+    for (const chave in atributos) {
+      if (atributos[chave] + buffs[chave] < 0) {
+        alert("Há algum atributo negativo. Mude os valores");
+        return;
+      }
+    }
+    for (const chave in pericias) {
+      if (pericias[chave] + buffs[chave] < 0) {
+        alert("Há alguma perícia negativa. Mude os valores");
+        return;
+      }
     }
     setConcluido(true);
   };
