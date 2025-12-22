@@ -199,6 +199,7 @@ Intelecto
 Artes{pen("artes")}: {arredondaMenorInt((intelecto + destreza + psicologia + poder) / 4 + aparencia + sabedoria)}
 Atualidades: {arredondaMenorInt((intelecto + sorte) / 2 + sabedoria)}
 Bibliotecas: {arredondaMenorInt((intelecto + percepcao) / 2)}
+Crime{pen("crime")}: {arredondaMenorInt((intelecto + (2 * destreza) + (2 * tecnica)) / 5 + (sabedoria / 2))}
 Drogas{pen("drogas")}: {arredondaMenorInt((intelecto + poder + percepcao) / 3 + sabedoria)}
 História{pen("historia")}: {arredondaMenorInt(intelecto + sabedoria)}
 Medicina{pen("medicina")}: {arredondaMenorInt(((4 * intelecto) + precisao) / 5 + sabedoria)}

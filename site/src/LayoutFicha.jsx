@@ -301,6 +301,7 @@ export default function Ficha({ info, classe, especialidades, habilidades, atrib
             <ExibirValor label={"Artes"} valor={Math.floor((intelecto + destreza + psicologia + poder) / 4 + aparencia + sabedoria)} havePenali={true} />
             <ExibirValor label={"Atualidades"} valor={Math.floor((intelecto + sorte) / 2 + sabedoria)} />
             <ExibirValor label={"Bibliotecas"} valor={Math.floor((intelecto + percepcao) / 2)} />
+            <ExibirValor label={"Crime"} valor={Math.floor((intelecto + (2 * destreza) + (2 * tecnica)) / 5 + (sabedoria / 2))} havePenali={true} />
             <ExibirValor label={"Drogas"} valor={Math.floor((intelecto + poder + percepcao) / 3 + sabedoria)} havePenali={true} />
             <ExibirValor label={"História"} valor={Math.floor(intelecto + sabedoria)} havePenali={true} />
             <ExibirValor label={"Medicina"} valor={Math.floor(((4 * intelecto) + precisao) / 2 + sabedoria)} havePenali={true} />
