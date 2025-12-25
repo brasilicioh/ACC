@@ -95,30 +95,26 @@ export function MostrarAdicional({ strName, adicionais, setAdicionais, classeEsp
   );
 }
 
-export function ExibirHabilidade({ habilidades }) {
+export function ExibirAdicional({ name, itens, classe }) {
+  const config = {
+    Classe: (k) => buffs["classes"]?.[k],
+    Habilidade: (k) => buffs["habilidades"]?.[k],
+    Especialidade: (k) => buffs["especialidades"]?.[classe]?.[k],
+  };
+
+  const items = Array.isArray(itens) ? itens : itens ? [itens] : [];
+  if (items.length === 0) return null;
+
   return (
     <ul>
-      {habilidades.map((key) => (
-        <li><p><strong>{key}: </strong>{buffs["habilidades"][key]}</p></li>
+      {items.map((key) => (
+        <li key={key}>
+          <p className={name === "Classe" ? "quebraLinha" : undefined}>
+            <strong>{key}: </strong>
+            {config[name]?.(key)}
+          </p>
+        </li>
       ))}
     </ul>
   );
-}
-
-export function ExibirClasse({ classe }) {
-  return (
-    <ul>
-      <p className="quebraLinha"><strong>{classe}: </strong>{buffs["classes"][classe]}</p>
-    </ul>
-  )
-}
-
-export function ExibirEspecialidade({ classe, especialidades }) {
-  return (
-    <ul>
-      {especialidades.map((key) => (
-        <li><p><strong>{key}: </strong>{buffs["especialidades"][classe][key]}</p></li>
-      ))}
-    </ul>
-  )
 }

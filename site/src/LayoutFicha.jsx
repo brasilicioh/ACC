@@ -1,5 +1,5 @@
 import { useState, useRef } from "react";
-import { ExibirHabilidade,ExibirClasse, ExibirEspecialidade } from "./Adicionais.jsx";
+import { ExibirAdicional } from "./Adicionais.jsx";
 
 function normalize(obj = {}, keys) {
   const out = {};
@@ -13,27 +13,19 @@ function normalize(obj = {}, keys) {
 }
 
 function organizarFicha(text) {
-  text = text
-    .replace(/\r\n/g, "\n")
-    .replace(/\s*\+\s*-\s*$/gm, "")
-    .replace(/\n{3,}/g, "\n\n")
-    .trim();
+  function classify(line) {
+    const out = {};
+    if (!line) { out.type = "null"; out.text = ""; }
+    if (/^[A-ZÇÃÕÁÉÍÓÚ ]{3,}$/.test(line)) { out.type = "section"; out.text = line; }
+    if (/^[A-ZÁÉÍÓÚÇ][^:]{2,}:$/.test(line)) { out.type = "blockTitle"; out.text = line; }
+    if (/^[^:]+:\s*\S+/.test(line)) { out.type = "kv"; out.text = line; }
+    else { out.type = "text"; out.text = line; }
+    return out;
+  }
+
+  text = text.replace(/\r\n/g, "\n").replace(/\s*\+\s*-\s*$/gm, "").replace(/\n{3,}/g, "\n\n").trim();
 
   const rawLines = text.split("\n").map(l => l.trim());
-
-  function classify(line) {
-    if (!line) return { type: "empty", text: "" };
-    if (/^[A-ZÇÃÕÁÉÍÓÚ ]{3,}$/.test(line)) {
-      return { type: "section", text: line };
-    }
-    if (/^[A-ZÁÉÍÓÚÇ][^:]{2,}:$/.test(line)) {
-      return { type: "blockTitle", text: line };
-    }
-    if (/^[^:]+:\s*\S+/.test(line)) {
-      return { type: "kv", text: line };
-    }
-    return { type: "text", text: line };
-  }
 
   const lines = rawLines.map(classify);
 
@@ -44,7 +36,7 @@ function organizarFicha(text) {
   }
 
   for (const l of lines) {
-    if (l.type === "empty") continue;
+    if (l.type === "null") continue;
     if (l.type === "section") {
       blank(2);
       out.push(l.text);
@@ -88,23 +80,16 @@ function organizarFicha(text) {
     const line = lines2[i];
     const prev = fixed[fixed.length - 1];
 
-    if (
-      actionSubtitles.includes(line) &&
-      prev &&
-      prev.includes(":")
-    ) {
+    if (actionSubtitles.includes(line) && prev && prev.includes(":")) {
       fixed.push("");
     }
     fixed.push(line);
   }
 
   result = fixed.join("\n");
-  result = result.replace("PERÍCIAS", "\n\nPERÍCIAS");
-  result = result.replace("AÇÕES", "\n\nAÇÕES");
+  result = result.replace("PERÍCIAS", "\n\nPERÍCIAS").replace("AÇÕES", "\n\nAÇÕES");
 
-  return result
-    .replace(/\n{3,}/g, "\n\n")
-    .trim();
+  return result.replace(/\n{3,}/g, "\n\n").trim();
 }
 
 function CopiarFicha({ fichaRef }) {
@@ -218,13 +203,13 @@ export default function Ficha({ info, classe, especialidades, habilidades, atrib
 
         <section>
           <h2>CLASSE E ESPECIALIDADES</h2>
-          <ExibirClasse classe={classe} />
-          <ExibirEspecialidade classe={classe} especialidades={especialidades} />
+          <ExibirAdicional name="Classe" itens={classe} />
+          <ExibirAdicional name="Especialidade" itens={especialidades} classe={classe} />
         </section>
 
         <section>
           <h2>HABILIDADES</h2>
-          <ExibirHabilidade habilidades={habilidades} />
+          <ExibirAdicional name="Habilidade" itens={habilidades} />
         </section>
 
         <br />
