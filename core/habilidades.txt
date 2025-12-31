@@ -29,7 +29,7 @@ Corajoso
 Você ignora penalidades em situações que exigem coragem. Ganha vantagem em testes e +10 em Saúde Mental.
 
 Criminoso
-Você é especialista em realizar crimes (roubos, furtos, arrombamentos etc). Você tem +2 e vantagem na ação de Crime. Após realizar algum crime, você tem vantagem em testes para mentir ou enganar alguém.
+Você é especialista em realizar crimes (roubos, furtos, arrombamentos etc). Você tem +2 e vantagem na ação de Crime. Após realizar algum crime, você tem vantagem em testes para mentir ou enganar alguém. Sem penalidade em testes de crime.
 
 Detetive
 Ganha vantagem e +2 em Intelecto. +1 em Intuição e Investigar. Nessas ações, só fracassa se for um fracasso desastroso. Sem penalidade em História, Artes e Buscar.
